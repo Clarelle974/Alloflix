@@ -1,0 +1,31 @@
+.movieCard {
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+  padding: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: -1rem;
+  font-weight: 500;
+}
+
+img {
+  border-radius: 1rem;
+}
+
+#rate {
+  display: flex;
+  background: linear-gradient(#00ff00, #00a927);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 3rem;
+  font-weight: 800;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -1.5rem;
+  left: 1rem;
+  font-size: 0.9rem;
+}
