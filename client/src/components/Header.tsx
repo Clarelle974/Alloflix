@@ -1,7 +1,9 @@
+import "../styles/header.css";
+
 export default function Header() {
   return (
-    <>
-      <h1>Header</h1>
-    </>
+    <header>
+      <h1>Bienvenue sur Alloflix</h1>
+    </header>
   );
 }
