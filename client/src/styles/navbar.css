@@ -3,3 +3,60 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Style global de la nav */
+nav {
+  background: var(--bgcolor);
+  display: flex;
+  justify-content: space-between; /* Espacement entre le logo/liens et la barre de recherche */
+  align-items: center;
+}
+
+/* Conteneur du logo et des liens */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Taille et espacement du logo */
+.logo img {
+  height: 10rem;
+}
+
+/* Liste des liens */
+.logo ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.logo ul li {
+  margin-right: 20px; /* Espacement entre les liens */
+}
+
+/* Style des liens */
+.logo ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+/* Conteneur de la barre de recherche */
+.searchnav {
+  display: flex;
+  justify-content: flex-end; /* Alignement à droite */
+  background-color: transparent;
+  border: none;
+}
+
+.searchnav input {
+  padding: 8px 12px;
+  width: 200px; /* Largeur de la barre de recherche */
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+.searchnav input::placeholder {
+  color: #bbb;
+}
