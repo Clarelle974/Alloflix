@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/footer.css";
 
 export default function Footer() {
@@ -9,28 +10,28 @@ export default function Footer() {
             src="https://cdn.discordapp.com/attachments/1324658166461370428/1326553270038171678/Alloflix_logo.png?ex=677fd881&is=677e8701&hm=ff1c4aa91b43bd28ac960affe08cebb6b4bceb9734328c214cdc948f0a7ff2e1&"
             alt="Alloflix"
           />
-          <a href="/" className="community">
+          <Link to={"#"} className="community">
             Rejoindre la communauté
-          </a>
+          </Link>
         </div>
         <nav>
           <div>
             <h3>Les bases</h3>
             <ul>
               <li>
-                <a href="/">À propos d'Alloflix</a>
+                <Link to={"#"}>À propos d'Alloflix</Link>
               </li>
               <li>
-                <a href="/">Contactez-nous</a>
+                <Link to={"#"}>Contactez-nous</Link>
               </li>
               <li>
-                <a href="/">Forum d'assitance</a>
+                <Link to={"#"}>Forum d'assitance</Link>
               </li>
               <li>
-                <a href="/">Centre d'aide</a>
+                <Link to={"#"}>Centre d'aide</Link>
               </li>
               <li>
-                <a href="/">Statut du système</a>
+                <Link to={"#"}>Statut du système</Link>
               </li>
             </ul>
           </div>
@@ -38,13 +39,13 @@ export default function Footer() {
             <h3>S'impliquer</h3>
             <ul>
               <li>
-                <a href="/">Bible des contributeurs</a>
+                <Link to={"#"}>Bible des contributeurs</Link>
               </li>
               <li>
-                <a href="/">Ajouter un film</a>
+                <Link to={"#"}>Ajouter un film</Link>
               </li>
               <li>
-                <a href="/">Ajouter un artiste</a>
+                <Link to={"#"}>Ajouter un artiste</Link>
               </li>
             </ul>
           </div>
@@ -52,13 +53,13 @@ export default function Footer() {
             <h3>Communauté</h3>
             <ul>
               <li>
-                <a href="/">Règles</a>
+                <Link to={"#"}>Règles</Link>
               </li>
               <li>
-                <a href="/">Conversations</a>
+                <Link to={"#"}>Conversations</Link>
               </li>
               <li>
-                <a href="/">Top contributeurs</a>
+                <Link to={"#"}>Top contributeurs</Link>
               </li>
             </ul>
           </div>
@@ -66,16 +67,16 @@ export default function Footer() {
             <h3>Mentions légales</h3>
             <ul>
               <li>
-                <a href="/">Conditions d'utilisation</a>
+                <Link to={"#"}>Conditions d'utilisation</Link>
               </li>
               <li>
-                <a href="/">Confidentialité</a>
+                <Link to={"#"}>Confidentialité</Link>
               </li>
               <li>
-                <a href="/">Information légales</a>
+                <Link to={"#"}>Information légales</Link>
               </li>
               <li>
-                <a href="/">Préférences de cookies</a>
+                <Link to={"#"}>Préférences de cookies</Link>
               </li>
             </ul>
           </div>
