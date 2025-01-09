@@ -3,3 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+header {
+  background-image: url("https://collider.com/wp-content/uploads/dark-knight-rises-movie-poster-banner-batman.jpg");
+  height: 45vh;
+}
+
+header > h1 {
+  color: white;
+  text-align: center;
+}

@@ -5,7 +5,6 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: var(--primary-color);
   background-color: var(--bgcolor);
-  /* background-color à enlever ? */
 }
 :root {
   --bgcolor: #141414;
@@ -14,10 +13,12 @@
 .cards-display {
   display: flex;
   margin-top: 1rem;
-  /* margin-top à conserver ? */
 }
 
 h2 {
   padding-top: 2rem;
-  /* padding à conserver ? sinon le h2 de la home page s'affiche collé au header */
+}
+
+:root {
+  --bgcolor: #141414;
 }
