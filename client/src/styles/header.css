@@ -12,4 +12,32 @@ header {
 header > h1 {
   color: white;
   text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  height: fit-content;
+  width: 100%;
+}
+
+.input {
+  text-align: center;
+  padding: 20rem;
+  padding-top: 15rem;
+  display: flex;
+}
+
+input {
+  width: 80%;
+  height: 2rem;
+  border-radius: 20px;
+  border: none;
+  text-align: center;
+}
+
+button {
+  position: relative;
+  right: 25px;
+  border: none;
+  border-radius: 20px;
+  width: 13rem;
 }
