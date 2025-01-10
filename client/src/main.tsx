@@ -17,6 +17,7 @@ import Search from "./pages/Search";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
+import { getPopularMovies } from "./services/requests";
 
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Homepage />,
         errorElement: <Page404 />,
+        loader: getPopularMovies,
       },
       {
         path: "/movies",
