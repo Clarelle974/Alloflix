@@ -1,16 +1,25 @@
 import "../styles/movieCard.css";
-export default function MovieCard() {
+
+interface MovieTypes {
+  movie: {
+    id: number;
+    title: string; //ou name ?
+    poster_path: string;
+    vote_average: number;
+    release_date: string;
+  };
+}
+export default function MovieCard({ movie }: MovieTypes) {
+  const percentageVote = Math.trunc(movie.vote_average * 10);
+  const year = movie.release_date.split("-")[0];
   return (
     <>
-      <div className="test">
+      <div className="cards-display">
         <div className="movieCard">
-          <img
-            src="src/assets/images/Mufasa_sample.webp"
-            alt="vignette de film"
-          />
-          <div id="rate">75%</div>
-          <h2>Mufasa</h2>
-          <h3>2024</h3>
+          <img src={movie.poster_path} alt={movie.title} />
+          <div id="rate">{percentageVote}%</div>
+          <h2>{movie.title}</h2>
+          <h3>{year}</h3>
         </div>
       </div>
     </>
