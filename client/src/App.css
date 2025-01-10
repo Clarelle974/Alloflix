@@ -12,11 +12,6 @@
   background-color: var(--bgcolor);
 }
 
-.cards-display {
-  display: flex;
-  margin-top: 1rem;
-}
-
-h2 {
-  padding-top: 2rem;
+main {
+  min-height: calc(100vh - 474px);
 }
