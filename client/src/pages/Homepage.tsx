@@ -1,5 +1,4 @@
 import Header from "../components/Header";
-import MovieCard from "../components/MovieCard";
 
 export default function Homepage() {
   return (
@@ -7,10 +6,7 @@ export default function Homepage() {
       <Header />
       <h2>Tendances</h2>
       <div className="cards-display">
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
+        {/* { <MovieCard key={movie.id} movie={movie} />} */}
       </div>
     </>
   );
