@@ -12,7 +12,7 @@ interface PopularMoviesTypes {
 
 export default function PopularMovie() {
   const data = useLoaderData() as PopularMoviesTypes[];
-  console.info(data);
+
   return (
     <section>
       <h2>Films populaires</h2>
