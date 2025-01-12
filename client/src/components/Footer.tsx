@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
 import "../styles/footer.css";
+import Logo from "../assets/images/Alloflix_logo.png";
 
 export default function Footer() {
   return (
     <footer>
       <div className="join">
         <div className="logo">
-          <img
-            src="https://cdn.discordapp.com/attachments/1324658166461370428/1326553270038171678/Alloflix_logo.png?ex=677fd881&is=677e8701&hm=ff1c4aa91b43bd28ac960affe08cebb6b4bceb9734328c214cdc948f0a7ff2e1&"
-            alt="Alloflix"
-          />
+          <img src={Logo} alt="Alloflix" />
           <Link to={"#"} className="community">
             Rejoindre la communauté
           </Link>

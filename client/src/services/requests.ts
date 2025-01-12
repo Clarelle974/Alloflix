@@ -2,11 +2,9 @@ import axios from "axios";
 
 const options = {
   method: "GET",
-  url: "https://api.themoviedb.org/3/movie/popular",
-  params: { language: "en-US", page: "1" },
   headers: {
     accept: "application/json",
-    Authorization: `Bearer ${import.meta.env.API_KEY}`,
+    Authorization: `Bearer ${import.meta.env.VITE_REACT_APP_API_KEY}`,
   },
 };
 
