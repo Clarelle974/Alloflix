@@ -11,16 +11,13 @@ export default function Navbar() {
         />
         <ul>
           <li>
-            <Link to={"#"}>Accueil</Link>
+            <Link to="/">Accueil</Link>
           </li>
           <li>
-            <Link to={"#"}>Films</Link>
+            <Link to="/movies">Films</Link>
           </li>
           <li>
-            <Link to={"#"}>Artistes</Link>
-          </li>
-          <li>
-            <Link to={"#"}>Ma Liste</Link>
+            <Link to="/artists">Artistes</Link>
           </li>
         </ul>
       </div>
