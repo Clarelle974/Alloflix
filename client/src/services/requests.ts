@@ -11,7 +11,7 @@ const options = {
 const getCategories = () => {
   return axios
     .get("https://api.themoviedb.org/3/movie/popular", options)
-    .then((response) => response.data)
+    .then((response) => response.data.results)
     .catch((error) => console.error(error));
 };
 
