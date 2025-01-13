@@ -12,3 +12,17 @@ section > h2 {
   overflow-x: scroll;
   scroll-behavior: smooth;
 }
+
+::-webkit-scrollbar {
+  background: transparent;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darkgray;
+}
