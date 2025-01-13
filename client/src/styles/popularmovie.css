@@ -1,5 +1,14 @@
+section > h2 {
+  padding-left: 3rem;
+}
+
+.container {
+  padding: 2rem 8rem 0 8rem;
+}
+
 .all-cards {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
 }

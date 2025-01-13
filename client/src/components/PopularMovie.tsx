@@ -16,10 +16,12 @@ export default function PopularMovie() {
   return (
     <section>
       <h2>Films populaires</h2>
-      <div className="all-cards">
-        {data.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+      <div className="container">
+        <div className="all-cards">
+          {data.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </div>
       </div>
     </section>
   );
