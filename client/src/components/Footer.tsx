@@ -80,7 +80,7 @@ export default function Footer() {
           </div>
         </nav>
       </div>
-      <section>© 2025 Alloflix by Wilders</section>
+      <section className="copyright">© 2025 Alloflix by Wilders</section>
     </footer>
   );
 }
