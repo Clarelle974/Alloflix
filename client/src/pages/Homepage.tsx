@@ -23,9 +23,11 @@ export default function Homepage() {
         {/* {<MovieCard key={movie.id} movie={movie} />} */}
       </div>
       <h2>Bandes-annonces</h2>
-      {discoverData.map((movie) => (
-        <Trailer key={movie.id} movie={movie} />
-      ))}
+      <div className="cards-display">
+        {discoverData.map((movie) => (
+          <Trailer key={movie.id} movie={movie} />
+        ))}
+      </div>
     </>
   );
 }

@@ -72,5 +72,4 @@ const getDiscoverMovies = () => {
     .catch((err) => console.error(err));
 };
 
-// export { getTrailer, getDiscoverMovies };
 export { getDiscoverMovies };
