@@ -26,8 +26,6 @@ export default function Trailer({ movie }: MovieTypes) {
       headers: {
         accept: "application/json",
         Authorization: `Bearer ${import.meta.env.API_TOKEN}`,
-        // Authorization:
-        //   "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNWFiZjgyYTI4ZWYzYTUzNjZiY2JiMGQzZjAwZGZmYSIsIm5iZiI6MTczNjM0MzMxNi4wNTIsInN1YiI6IjY3N2U3ZjE0Mzg4MWM3OTQxOWJiMTMzOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UFl-_q6Yb0Znq_mpiGMVve0iUnCAJ-Z7Uo4xpWd4x-4",
       },
     };
 
