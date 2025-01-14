@@ -47,4 +47,5 @@
 .btn-search:hover {
   background-color: lightgray;
   color: var(--bgcolor);
+  cursor: pointer;
 }
