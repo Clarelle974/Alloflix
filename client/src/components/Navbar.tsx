@@ -4,9 +4,11 @@ import Logo from "../assets/images/Alloflix_logo.png";
 
 export default function Navbar() {
   return (
-    <nav>
+    <nav className="navbar">
       <div className="logo">
         <img src={Logo} alt="Alloflix Logo" />
+      </div>
+      <div className="link-nav">
         <ul>
           <li>
             <Link to="/">Accueil</Link>
@@ -19,9 +21,8 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-
       <div className="searchnav">
-        <input type="text" placeholder="Rechercher..." />
+        <input type="text" placeholder="Rechercher un film..." />
       </div>
     </nav>
   );

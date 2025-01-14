@@ -1,62 +1,55 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* Style global de la nav */
-nav {
+.navbar {
   background: var(--bgcolor);
   display: flex;
-  justify-content: space-between; /* Espacement entre le logo/liens et la barre de recherche */
+  justify-content: space-around; /* Espacement entre le logo/liens et la barre de recherche */
   align-items: center;
 }
 
-/* Conteneur du logo et des liens */
+/* Conteneur du logo */
 .logo {
   display: flex;
   align-items: center;
+  padding: 1rem 0 1rem 0;
 }
 
 /* Taille et espacement du logo */
-.logo img {
-  height: 10rem;
+.logo > img {
+  height: 4rem;
 }
 
 /* Liste des liens */
-.logo ul {
+.link-nav > ul {
   display: flex;
   list-style: none;
-  padding: 0;
 }
 
-.logo ul li {
+.link-nav > ul > li {
   margin-right: 20px; /* Espacement entre les liens */
 }
 
 /* Style des liens */
-.logo ul li a {
+.link-nav > ul > li > a {
   text-decoration: none;
-  color: white;
   font-size: 16px;
 }
 
 /* Conteneur de la barre de recherche */
 .searchnav {
   display: flex;
-  justify-content: flex-end; /* Alignement à droite */
   background-color: transparent;
-  border: none;
+  border: 1px solid white;
+  border-radius: 10px;
 }
 
-.searchnav input {
-  padding: 8px 12px;
-  width: 200px; /* Largeur de la barre de recherche */
+.searchnav > input {
+  width: 12rem; /* Largeur de la barre de recherche */
   background-color: transparent;
   color: white;
   border: none;
+  outline: none;
 }
 
-.searchnav input::placeholder {
-  color: #bbb;
+.searchnav > input::placeholder {
+  opacity: 0.8;
 }
