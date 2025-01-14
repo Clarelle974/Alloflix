@@ -1,43 +1,50 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .header {
+  display: flex;
   background-image: url("https://collider.com/wp-content/uploads/dark-knight-rises-movie-poster-banner-batman.jpg");
-  height: 45vh;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top;
   height: fit-content;
+  min-height: 19rem;
+  max-height: 23rem;
+  height: calc(100vh / 2.5);
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
 }
 
-header > h1 {
-  color: white;
-  text-align: center;
+.main-title {
+  margin-bottom: 2rem;
 }
 
-.input {
-  text-align: center;
-  padding: 20rem;
-  padding-top: 15rem;
-  display: flex;
+.header-search {
+  width: 50rem;
 }
 
-input {
-  width: 80%;
+.input-search {
+  position: absolute;
+  width: 50rem;
   height: 2rem;
   border-radius: 20px;
   border: none;
-  text-align: center;
+  padding: 1.5rem 0 1.5rem 1rem;
+  outline: none;
+  color: black;
 }
 
-button {
+.btn-search {
   position: relative;
-  right: 25px;
+  left: 700px;
+  padding: 1rem;
   border: none;
   border-radius: 20px;
-  width: 13rem;
+  background: var(--bgcolor);
+}
+.btn-search:hover {
+  background-color: lightgray;
+  color: var(--bgcolor);
 }

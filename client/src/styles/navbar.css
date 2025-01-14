@@ -37,12 +37,13 @@
 /* Conteneur de la barre de recherche */
 .searchnav {
   display: flex;
+  padding: 0.5rem;
   background-color: transparent;
   border: 1px solid white;
   border-radius: 10px;
 }
 
-.searchnav > input {
+.input-navbar {
   width: 12rem; /* Largeur de la barre de recherche */
   background-color: transparent;
   color: white;

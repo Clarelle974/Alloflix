@@ -22,7 +22,11 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="searchnav">
-        <input type="text" placeholder="Rechercher un film..." />
+        <input
+          type="text"
+          placeholder="Rechercher un film..."
+          className="input-navbar"
+        />
       </div>
     </nav>
   );
