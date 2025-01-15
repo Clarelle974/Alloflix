@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Header from "../components/Header";
 import PopularMovie from "../components/PopularMovie";
+import TheaterMovie from "../components/TheaterMovie";
 import Trailer from "../components/Trailer";
 
 interface MovieTypes {
@@ -21,6 +22,7 @@ export default function Homepage() {
       {discoverData.map((movie) => (
         <Trailer key={movie.id} movie={movie} />
       ))}
+      <TheaterMovie />
     </>
   );
 }

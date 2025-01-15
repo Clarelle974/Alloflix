@@ -23,4 +23,11 @@ const getCategories = () => {
     .catch((error) => console.error(error));
 };
 
-export { getCategories, getPopularMovies };
+const getTheaterMovies = () => {
+  return axios
+    .get("https://api.themoviedb.org/3/movie/now_playing", config)
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
+export { getCategories, getPopularMovies, getTheaterMovies };
