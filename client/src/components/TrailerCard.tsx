@@ -28,8 +28,6 @@ export default function TrailerCard({ movie }: MovieTypes) {
     axios
       .get(`https://api.themoviedb.org/3/movie/${movie.id}/videos`, config)
       .then((res) => {
-        //ajouter une condition pour vérifier que le site source est Youtube (res.data.results[0].site==="YouTube");
-        //ajouter une condition pour vérifier que la video est un trailer (res.data.results[0].type==="Trailer");
         setSrcKey(res.data.results[0].key);
       })
       .catch((error) => console.error(error));
