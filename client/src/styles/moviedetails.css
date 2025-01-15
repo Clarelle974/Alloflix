@@ -1,0 +1,74 @@
+.poster {
+  height: 30rem;
+  margin: 2rem;
+}
+.detailscards {
+  display: flex;
+  margin-left: 0rem;
+}
+
+.right {
+  padding: 4rem;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.namedetails {
+  padding: 2rem;
+  border: solid 1px white;
+  width: fit-content;
+  padding: 0.5rem;
+  margin-left: 2rem;
+  border-radius: 10px;
+}
+.profilepic {
+  height: 14rem;
+  width: 10rem;
+}
+
+.cardcast {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardscasting {
+  display: flex;
+  margin: 3rem;
+  gap: 4rem;
+}
+
+.cast2 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.titlecast {
+  margin: 2rem;
+  margin-left: 6rem;
+}
+
+.rate {
+  display: flex;
+  background: linear-gradient(#00ff00, #00a927);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 3rem;
+  font-weight: 800;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -1.5rem;
+  left: 1rem;
+  font-size: 0.9rem;
+}
+
+.castname {
+  padding: 1rem;
+}
+
+.left {
+  margin-left: 4rem;
+  margin-top: 2rem;
+}

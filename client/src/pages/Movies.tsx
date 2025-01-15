@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 
 import "../styles/movies.css";
@@ -17,9 +17,11 @@ export default function Movies() {
   return (
     <>
       <h2 className="title">Films populaires</h2>
-      <section>
+      <section className="moviepage">
         {data.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <Link to={`/moviedetails/${movie.id}`} key={movie.id}>
+            <MovieCard key={movie.id} movie={movie} />
+          </Link>
         ))}
       </section>
     </>

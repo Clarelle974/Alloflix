@@ -20,7 +20,7 @@ export default function MovieCard({ movie }: MovieTypes) {
           alt={movie.title}
         />
         <div id="rate">{percentageVote}%</div>
-        <h2>{movie.title}</h2>
+        <h2 className="titlemoviecard">{movie.title}</h2>
         <h3>{year}</h3>
       </div>
     </div>
