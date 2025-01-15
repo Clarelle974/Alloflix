@@ -14,7 +14,6 @@ import MovieDetails from "./pages/MovieDetails";
 import Movies from "./pages/Movies";
 import Page404 from "./pages/Page404";
 import Search from "./pages/Search";
-import { getDiscoverMovies } from "./services/requests";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -34,11 +33,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Homepage />,
-        loader: async () => {
-          const discoverMovies = await getDiscoverMovies();
-          const popularMovies = await getPopularMovies();
-          return { discoverMovies, popularMovies };
-        },
+        loader: getPopularMovies,
         errorElement: <Page404 />,
       },
       {
