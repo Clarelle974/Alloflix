@@ -17,7 +17,12 @@ import Search from "./pages/Search";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
-import { getCategories, getPopularMovies } from "./services/requests";
+import {
+  getCategories,
+  getCreditsMovie,
+  getDetailsMovie,
+  getPopularMovies,
+} from "./services/requests";
 
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
@@ -50,8 +55,12 @@ const router = createBrowserRouter([
         element: <Artists />,
       },
       {
-        path: "/moviedetails",
+        path: "/moviedetails/:movie_id",
         element: <MovieDetails />,
+        loader: async ({ params }) => ({
+          cast: await getCreditsMovie(Number(params.movie_id)),
+          details: await getDetailsMovie(Number(params.movie_id)),
+        }),
       },
       {
         path: "/artistdetails",
