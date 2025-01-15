@@ -23,4 +23,18 @@ const getCategories = () => {
     .catch((error) => console.error(error));
 };
 
-export { getCategories, getPopularMovies };
+const getDetailsMovie = (movie_id: number) => {
+  return axios
+    .get(`https://api.themoviedb.org/3/movie/${movie_id}`, config)
+    .then((response) => response.data)
+    .catch((error) => console.error(error));
+};
+
+const getCreditsMovie = (movie_id: number) => {
+  return axios
+    .get(`https://api.themoviedb.org/3/movie/${movie_id}/credits`, config)
+    .then((response) => response.data.cast)
+    .catch((error) => console.error(error));
+};
+
+export { getCategories, getPopularMovies, getDetailsMovie, getCreditsMovie };

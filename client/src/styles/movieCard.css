@@ -5,6 +5,17 @@
   padding: 1rem;
 }
 
+.titlemoviecard {
+  font-size: 1rem;
+  margin-top: -1rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
 .img-movie-card {
   border-radius: 16px;
 }
