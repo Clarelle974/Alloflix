@@ -1,27 +1,24 @@
 import axios from "axios";
 
-const optionsPopularMovies = {
-  method: "GET",
-  params: { language: "en-US", page: "1" },
+const key = import.meta.env.VITE_API_KEY;
+
+const config = {
   headers: {
     accept: "application/json",
-    Authorization: `Bearer ${import.meta.env.VITE_REACT_APP_API_KEY}`,
+    Authorization: `Bearer ${key}`,
   },
 };
 
 const getPopularMovies = () => {
   return axios
-    .get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_REACT_APP_API_KEY}`,
-      optionsPopularMovies,
-    )
+    .get("https://api.themoviedb.org/3/discover/movie", config)
     .then((response) => response.data.results)
     .catch((error) => console.error(error));
 };
 
 const getCategories = () => {
   return axios
-    .get("https://api.themoviedb.org/3/movie/popular", optionsPopularMovies)
+    .get("https://api.themoviedb.org/3/movie/popular", config)
     .then((response) => response.data.results)
     .catch((error) => console.error(error));
 };
