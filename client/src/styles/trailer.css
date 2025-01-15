@@ -1,0 +1,27 @@
+.trailer {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  padding: 1rem;
+}
+.trailer img {
+  border-radius: 1rem;
+}
+.trailer a {
+  position: relative;
+  display: block;
+}
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12rem;
+  opacity: 0.8;
+  background: none;
+}
+
+.icon:hover {
+  width: 14rem;
+  opacity: 1;
+}

@@ -38,8 +38,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Homepage />,
-        errorElement: <Page404 />,
         loader: getPopularMovies,
+        errorElement: <Page404 />,
       },
       {
         path: "/movies",
