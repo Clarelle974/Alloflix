@@ -7,14 +7,14 @@ export default function Footer() {
     <footer>
       <div className="join">
         <div className="logo">
-          <img src={Logo} alt="Alloflix" />
+          <img src={Logo} alt="Alloflix" className="alloflix-logo" />
           <Link to={"#"} className="community">
             Rejoindre la communauté
           </Link>
         </div>
-        <nav>
+        <nav className="nav-footer">
           <div>
-            <h3>Les bases</h3>
+            <h3 className="footer-name">Les bases</h3>
             <ul>
               <li>
                 <Link to={"#"}>À propos d'Alloflix</Link>
@@ -34,7 +34,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3>S'impliquer</h3>
+            <h3 className="footer-name">S'impliquer</h3>
             <ul>
               <li>
                 <Link to={"#"}>Bible des contributeurs</Link>
@@ -48,7 +48,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3>Communauté</h3>
+            <h3 className="footer-name">Communauté</h3>
             <ul>
               <li>
                 <Link to={"#"}>Règles</Link>
@@ -62,7 +62,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3>Mentions légales</h3>
+            <h3 className="footer-name">Mentions légales</h3>
             <ul>
               <li>
                 <Link to={"#"}>Conditions d'utilisation</Link>

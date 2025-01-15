@@ -18,10 +18,11 @@ export default function MovieCard({ movie }: MovieTypes) {
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
+          className="img-movie-card"
         />
         <div id="rate">{percentageVote}%</div>
-        <h2>{movie.title}</h2>
-        <h3>{year}</h3>
+        <h2 className="movie-title-card">{movie.title}</h2>
+        <h3 className="movie-year-card">{year}</h3>
       </div>
     </div>
   );

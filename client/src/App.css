@@ -16,7 +16,7 @@ body {
 }
 
 main {
-  min-height: calc(100vh - 474px);
+  min-height: calc(100vh - 413px);
 }
 
 .cards-display {

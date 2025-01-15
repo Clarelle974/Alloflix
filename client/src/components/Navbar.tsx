@@ -24,9 +24,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav>
+    <nav className="navbar">
       <div className="logo">
         <img src={Logo} alt="Alloflix Logo" />
+      </div>
+      <div className="link-nav">
         <ul>
           <li>
             <Link to="/">Accueil</Link>
@@ -68,9 +70,12 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-
       <div className="searchnav">
-        <input type="text" placeholder="Rechercher..." />
+        <input
+          type="text"
+          placeholder="Rechercher un film..."
+          className="input-navbar"
+        />
       </div>
     </nav>
   );

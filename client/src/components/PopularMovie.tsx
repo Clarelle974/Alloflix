@@ -15,7 +15,7 @@ export default function PopularMovie() {
 
   return (
     <section>
-      <h2>Films populaires</h2>
+      <h2 className="popular-movie-title">Films populaires</h2>
       <div className="container">
         <div className="all-cards">
           {data.map((movie) => (

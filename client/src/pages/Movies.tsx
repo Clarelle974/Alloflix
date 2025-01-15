@@ -17,7 +17,7 @@ export default function Movies() {
   return (
     <>
       <h2 className="title">Films populaires</h2>
-      <section>
+      <section className="section-movies">
         {data.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
