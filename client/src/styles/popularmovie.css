@@ -1,0 +1,28 @@
+section > h2 {
+  padding-left: 3rem;
+}
+
+.container {
+  padding: 2rem 8rem 0 8rem;
+}
+
+.all-cards {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darkgray;
+}

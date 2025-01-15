@@ -44,20 +44,25 @@ export default function Trailer({ movie }: MovieTypes) {
   }, [movie.id]);
 
   return (
-    <article className="trailer">
-      <Link
-        to={`https://www.youtube.com/watch?v=${srcKey}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img src={backdropSrc} alt={movie.title} />
-        <img
-          src="src/assets/images/play-icon-light.png"
-          alt="play"
-          className="icon"
-        />
-      </Link>
-      <h2>{movie.title}</h2>
-    </article>
+    <>
+      <h2>Bandes-annonces</h2>
+      <div className="cards-display">
+        <article className="trailer">
+          <Link
+            to={`https://www.youtube.com/watch?v=${srcKey}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={backdropSrc} alt={movie.title} />
+            <img
+              src="src/assets/images/play-icon-light.png"
+              alt="play"
+              className="icon"
+            />
+          </Link>
+          <h2>{movie.title}</h2>
+        </article>
+      </div>
+    </>
   );
 }

@@ -9,14 +9,17 @@
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: var(--primary-color);
+  /* background-color: var(--bgcolor); */
+}
+body {
   background-color: var(--bgcolor);
+}
+
+main {
+  min-height: calc(100vh - 474px);
 }
 
 .cards-display {
   display: flex;
   margin-top: 1rem;
-}
-
-h2 {
-  padding-top: 2rem;
 }

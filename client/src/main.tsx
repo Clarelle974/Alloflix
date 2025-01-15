@@ -14,11 +14,11 @@ import MovieDetails from "./pages/MovieDetails";
 import Movies from "./pages/Movies";
 import Page404 from "./pages/Page404";
 import Search from "./pages/Search";
-// import { getTrailer } from "./services/requests";
 import { getDiscoverMovies } from "./services/requests";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
+import { getCategories, getPopularMovies } from "./services/requests";
 
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
@@ -34,12 +34,17 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Homepage />,
-        loader: getDiscoverMovies,
+        loader: async () => {
+          const discoverMovies = await getDiscoverMovies();
+          const popularMovies = await getPopularMovies();
+          return { discoverMovies, popularMovies };
+        },
         errorElement: <Page404 />,
       },
       {
         path: "/movies",
         element: <Movies />,
+        loader: getCategories,
       },
       {
         path: "/search",
