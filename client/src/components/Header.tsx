@@ -7,6 +7,7 @@ export default function Header() {
         <div className="input">
           <h1 className="main-title">Bienvenue sur Alloflix</h1>
           <div className="header-search">
+            <img src=".src/assets/images/search-icon.png" alt="" />
             <input
               type="search"
               placeholder="Rechercher un film ou un artiste..."
