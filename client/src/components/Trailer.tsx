@@ -10,14 +10,16 @@ interface MovieTypes {
   release_date: string;
 }
 export default function Trailer() {
-  const data = useLoaderData() as MovieTypes[];
+  const { popular } = useLoaderData() as {
+    popular: MovieTypes[];
+  };
   return (
     <>
       <section>
         <h2 className="popular-movie-title">Bandes-annonces</h2>
         <div className="container">
           <article className="all-cards">
-            {data.map((movie) => (
+            {popular.map((movie) => (
               <TrailerCard key={movie.id} movie={movie} />
             ))}
           </article>

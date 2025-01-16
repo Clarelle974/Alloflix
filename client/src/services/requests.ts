@@ -23,6 +23,13 @@ const getCategories = () => {
     .catch((error) => console.error(error));
 };
 
+const getTheaterMovies = () => {
+  return axios
+    .get("https://api.themoviedb.org/3/movie/now_playing", config)
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
 const getDetailsMovie = (movie_id: number) => {
   return axios
     .get(`https://api.themoviedb.org/3/movie/${movie_id}`, config)
@@ -37,4 +44,10 @@ const getCreditsMovie = (movie_id: number) => {
     .catch((error) => console.error(error));
 };
 
-export { getCategories, getPopularMovies, getDetailsMovie, getCreditsMovie };
+export {
+  getCategories,
+  getPopularMovies,
+  getDetailsMovie,
+  getCreditsMovie,
+  getTheaterMovies,
+};
