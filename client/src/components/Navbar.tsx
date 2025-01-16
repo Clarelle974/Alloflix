@@ -6,10 +6,7 @@ import Logo from "../assets/images/Alloflix_logo.png";
 export default function Navbar() {
   const [isMoviesDropdownVisible, setMoviesDropdownVisible] = useState(false);
   const [isArtistsDropdownVisible, setArtistsDropdownVisible] = useState(false);
-  // const [searchBarView, setSearchBarView] = useState(false);
-  // const handleClickSearchIcon = () => {
-  //   setSearchBarView(true);
-  // };
+  const [searchBarView, setSearchBarView] = useState(false);
 
   const handleMoviesMouseEnter = () => {
     setMoviesDropdownVisible(true);
@@ -25,6 +22,10 @@ export default function Navbar() {
 
   const handleArtistsMouseLeave = () => {
     setArtistsDropdownVisible(false);
+  };
+
+  const handleClickSearchIcon = () => {
+    setSearchBarView(!searchBarView);
   };
 
   return (
@@ -78,10 +79,11 @@ export default function Navbar() {
         <input
           type="text"
           placeholder="Rechercher un film..."
-          // className="input-navbar"
-          // className="hide"
+          className={searchBarView ? "" : "hide"}
         />
-        <img src="src/assets/images/search-icon.png" alt="" />
+        <button type="button" onClick={handleClickSearchIcon}>
+          <img src="src/assets/images/search-icon.png" alt="" />
+        </button>
       </div>
     </nav>
   );
