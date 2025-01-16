@@ -22,6 +22,7 @@ import {
   getCreditsMovie,
   getDetailsMovie,
   getPopularMovies,
+  getSearchMovie,
   getTheaterMovies,
 } from "./services/requests";
 
@@ -51,8 +52,9 @@ const router = createBrowserRouter([
         loader: getCategories,
       },
       {
-        path: "/search",
+        path: "/search/:movie",
         element: <Search />,
+        loader: ({ params }) => getSearchMovie(String(params.movie)),
       },
       {
         path: "/artists",
