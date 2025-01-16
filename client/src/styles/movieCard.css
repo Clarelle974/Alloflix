@@ -1,7 +1,6 @@
 .movieCard {
   display: flex;
   flex-direction: column;
-  width: 12rem;
   padding: 1rem;
 }
 
@@ -18,6 +17,7 @@
 
 .img-movie-card {
   border-radius: 16px;
+  height: 15rem;
 }
 
 #rate {
