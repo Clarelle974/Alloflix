@@ -1,6 +1,5 @@
 import { useLoaderData } from "react-router-dom";
 import MovieCard from "./MovieCard";
-import "../styles/theatermovie.css";
 
 interface TheaterMoviesTypes {
   id: number;
@@ -11,7 +10,9 @@ interface TheaterMoviesTypes {
 }
 
 export default function TheaterMovie() {
-  const theater = useLoaderData() as TheaterMoviesTypes[];
+  const { theater } = useLoaderData() as {
+    theater: TheaterMoviesTypes[];
+  };
 
   return (
     <section className="theater-movie">
