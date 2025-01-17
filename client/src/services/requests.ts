@@ -44,6 +44,22 @@ const getCreditsMovie = (movie_id: number) => {
     .catch((error) => console.error(error));
 };
 
+const getDetailsArtist = (person_id: number) => {
+  return axios
+    .get(`https://api.themoviedb.org/3/person/${person_id}`, config)
+    .then((response) => response.data)
+    .catch((error) => console.error(error));
+};
+
+const getCombinedCredits = (person_id: number) => {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/person/${person_id}/combined_credits`,
+      config,
+    )
+    .then((response) => response.data.cast);
+};
+
 const getSearchMovie = (movie: string) => {
   return axios
     .get(
@@ -58,6 +74,7 @@ const getUpcomingMovies = () => {
   return axios
     .get("https://api.themoviedb.org/3/movie/upcoming", config)
     .then((response) => response.data.results)
+
     .catch((error) => console.error(error));
 };
 
@@ -66,6 +83,8 @@ export {
   getPopularMovies,
   getDetailsMovie,
   getCreditsMovie,
+  getDetailsArtist,
+  getCombinedCredits,
   getTheaterMovies,
   getSearchMovie,
   getUpcomingMovies,
