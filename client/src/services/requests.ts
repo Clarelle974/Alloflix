@@ -44,10 +44,18 @@ const getCreditsMovie = (movie_id: number) => {
     .catch((error) => console.error(error));
 };
 
+const getUpcomingMovies = () => {
+  return axios
+    .get("https://api.themoviedb.org/3/movie/upcoming", config)
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
 export {
   getCategories,
   getPopularMovies,
   getDetailsMovie,
   getCreditsMovie,
   getTheaterMovies,
+  getUpcomingMovies,
 };

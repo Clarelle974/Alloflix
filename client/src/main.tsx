@@ -23,6 +23,7 @@ import {
   getDetailsMovie,
   getPopularMovies,
   getTheaterMovies,
+  getUpcomingMovies,
 } from "./services/requests";
 
 // import About from "./pages/About";
@@ -42,6 +43,7 @@ const router = createBrowserRouter([
         loader: async () => ({
           popular: await getPopularMovies(),
           theater: await getTheaterMovies(),
+          upcoming: await getUpcomingMovies(),
         }),
         errorElement: <Page404 />,
       },
