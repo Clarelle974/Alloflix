@@ -39,6 +39,7 @@
   font-size: 1rem;
   margin-top: -1rem;
   font-weight: 500;
+  max-width: 15ch;
 }
 
 .movie-year-card {
