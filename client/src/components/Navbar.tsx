@@ -30,9 +30,11 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="logo">
-        <img src={Logo} alt="Alloflix Logo" />
-      </div>
+      <Link to={"/"}>
+        <div className="logo">
+          <img src={Logo} alt="Alloflix Logo" />
+        </div>
+      </Link>
       <div className="link-nav">
         <ul>
           <li>
