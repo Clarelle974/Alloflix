@@ -1,6 +1,8 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 
+import "../styles/search.css";
+
 interface ResultsTypes {
   id: number;
   title: string;
@@ -18,11 +20,13 @@ export default function Search() {
       <div className="search">
         <div>
           <img src="/src/assets/images/search-icon.png" alt="search" />
-          <h2>{movie}</h2>
+          <p>{movie}</p>
         </div>
-        {results.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        <div className="search-results">
+          {results.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </div>
       </div>
     </>
   );

@@ -82,7 +82,7 @@ export default function Navbar() {
           className={searchBarView ? "" : "hide"}
         />
         <button type="button" onClick={handleClickSearchIcon}>
-          <img src="src/assets/images/search-icon.png" alt="" />
+          <img src="src/assets/images/search-icon.png" alt="search" />
         </button>
       </div>
     </nav>
