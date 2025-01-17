@@ -3,6 +3,15 @@ import axios from "axios";
 const key = import.meta.env.VITE_API_KEY;
 
 const config = {
+  params: { language: "fr-FR", page: "1" },
+  headers: {
+    accept: "application/json",
+    Authorization: `Bearer ${key}`,
+  },
+};
+
+const configPage2 = {
+  params: { language: "fr-FR", page: "2" },
   headers: {
     accept: "application/json",
     Authorization: `Bearer ${key}`,
@@ -25,7 +34,7 @@ const getCategories = () => {
 
 const getTheaterMovies = () => {
   return axios
-    .get("https://api.themoviedb.org/3/movie/now_playing", config)
+    .get("https://api.themoviedb.org/3/movie/now_playing", configPage2)
     .then((response) => response.data.results)
     .catch((error) => console.error(error));
 };
@@ -56,7 +65,7 @@ const getSearchMovie = (movie: string) => {
 
 const getUpcomingMovies = () => {
   return axios
-    .get("https://api.themoviedb.org/3/movie/upcoming", config)
+    .get("https://api.themoviedb.org/3/movie/upcoming", configPage2)
     .then((response) => response.data.results)
     .catch((error) => console.error(error));
 };
