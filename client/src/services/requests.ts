@@ -23,4 +23,11 @@ const getCategories = () => {
     .catch((error) => console.error(error));
 };
 
-export { getCategories, getPopularMovies };
+const getArtists = () => {
+  return axios
+    .get("https://api.themoviedb.org/3/trending/person", config)
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
+export { getCategories, getPopularMovies, getArtists };
