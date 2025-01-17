@@ -37,4 +37,28 @@ const getCreditsMovie = (movie_id: number) => {
     .catch((error) => console.error(error));
 };
 
-export { getCategories, getPopularMovies, getDetailsMovie, getCreditsMovie };
+const getDetailsArtist = (person_id: number) => {
+  return axios
+    .get(`https://api.themoviedb.org/3/person/${person_id}`, config)
+    .then((response) => response.data)
+    .catch((error) => console.error(error));
+};
+
+const getCombinedCredits = (person_id: number) => {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/person/${person_id}/combined_credits`,
+      config,
+    )
+    .then((response) => response.data.cast)
+    .catch((error) => console.error(error));
+};
+
+export {
+  getCategories,
+  getPopularMovies,
+  getDetailsMovie,
+  getCreditsMovie,
+  getDetailsArtist,
+  getCombinedCredits,
+};

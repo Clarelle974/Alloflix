@@ -19,7 +19,9 @@ import Search from "./pages/Search";
 // Try creating these components in the "pages" folder
 import {
   getCategories,
+  getCombinedCredits,
   getCreditsMovie,
+  getDetailsArtist,
   getDetailsMovie,
   getPopularMovies,
 } from "./services/requests";
@@ -63,8 +65,12 @@ const router = createBrowserRouter([
         }),
       },
       {
-        path: "/artistdetails",
+        path: "/artistdetails/:person_id",
         element: <ArtistDetails />,
+        loader: async ({ params }) => ({
+          data: await getDetailsArtist(Number(params.person_id)),
+          credits: await getCombinedCredits(Number(params.person_id)),
+        }),
       },
     ],
   },

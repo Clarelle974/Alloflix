@@ -1,6 +1,7 @@
 .poster {
   height: 30rem;
   margin: 2rem;
+  border-radius: 10px;
 }
 .detailscards {
   display: flex;
@@ -26,6 +27,7 @@
 .profilepic {
   height: 14rem;
   width: 10rem;
+  border-radius: 10px;
 }
 
 .cardcast {
@@ -42,6 +44,7 @@
 .cast2 {
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 6rem;
 }
 
 .titlecast {
@@ -64,11 +67,29 @@
   font-size: 0.9rem;
 }
 
+.left {
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
+
+.filmo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20ch;
+}
+
+.filmotitle {
+  margin-left: 6rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
 .castname {
   padding: 1rem;
 }
 
-.left {
-  margin-left: 4rem;
-  margin-top: 2rem;
+.cardcast {
+  display: flex;
+  align-items: center;
 }

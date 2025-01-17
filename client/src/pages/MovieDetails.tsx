@@ -2,30 +2,33 @@ import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CastingCard from "../components/CastingCard";
 import "../styles/moviedetails.css";
-export default function MovieDetails() {
-  type CastMember = {
-    name: string;
-    profile_path?: string;
-    character?: string;
-    id: number;
-  };
 
-  type Details = {
-    backdrop_path?: string;
-    vote_average: number;
-    original_title: string;
-    poster_path: string;
-    genres: { id: number; name: string }[];
-    overview: string;
-    release_date: string;
-    origin_country: string;
-    budget: number;
-    tagline: string;
-  };
+interface ActorTypes {
+  id: string;
+  character: string;
+  poster_path: string;
+  name: string;
+  profile_path: string;
+}
+type Details = {
+  backdrop_path?: string;
+  vote_average: number;
+  original_title: string;
+  poster_path: string;
+  genres: { id: number; name: string }[];
+  overview: string;
+  release_date: string;
+  origin_country: string;
+  budget: number;
+  tagline: string;
+};
+
+export default function MovieDetails() {
   const { details, cast } = useLoaderData() as {
     details: Details;
-    cast: CastMember[];
+    cast: ActorTypes[];
   };
+
   const percentageVote = Math.trunc(details.vote_average * 10);
 
   return (
@@ -61,9 +64,9 @@ export default function MovieDetails() {
       </section>
       <h1 className="titlecast">Casting</h1>
       <div className="cast2">
-        {cast.slice(0, 7).map((cast) => (
-          <Link to="/artistdetails" key={cast.id}>
-            <CastingCard key={cast.id} />
+        {cast.slice(0, 7).map((actor) => (
+          <Link to={`/artistdetails/${actor.id}`} key={actor.id}>
+            <CastingCard cast={actor} />
           </Link>
         ))}
       </div>
