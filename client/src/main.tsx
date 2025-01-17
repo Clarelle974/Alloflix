@@ -24,6 +24,9 @@ import {
   getDetailsArtist,
   getDetailsMovie,
   getPopularMovies,
+  getSearchMovie,
+  getTheaterMovies,
+  getUpcomingMovies,
 } from "./services/requests";
 
 // import About from "./pages/About";
@@ -40,7 +43,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Homepage />,
-        loader: getPopularMovies,
+        loader: async () => ({
+          popular: await getPopularMovies(),
+          theater: await getTheaterMovies(),
+          upcoming: await getUpcomingMovies(),
+        }),
         errorElement: <Page404 />,
       },
       {
@@ -49,8 +56,9 @@ const router = createBrowserRouter([
         loader: getCategories,
       },
       {
-        path: "/search",
+        path: "/search/:movie",
         element: <Search />,
+        loader: ({ params }) => getSearchMovie(String(params.movie)),
       },
       {
         path: "/artists",

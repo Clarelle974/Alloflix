@@ -1,8 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import MovieCard from "./MovieCard";
-import "../styles/popularmovie.css";
 
-interface PopularMoviesTypes {
+interface UpcomingMoviesTypes {
   id: number;
   title: string;
   poster_path: string;
@@ -10,17 +9,16 @@ interface PopularMoviesTypes {
   release_date: string;
 }
 
-export default function PopularMovie() {
-  const { popular } = useLoaderData() as {
-    popular: PopularMoviesTypes[];
+export default function UpcomingMovies() {
+  const { upcoming } = useLoaderData() as {
+    upcoming: UpcomingMoviesTypes[];
   };
-
   return (
-    <section>
-      <h2 className="popular-movie-title">Films populaires</h2>
+    <section className="upcoming-movie">
+      <h2 className="popular-movie-title">Films bientôt au cinéma</h2>
       <div className="container">
         <div className="all-cards">
-          {popular.map((movie) => (
+          {upcoming.map((movie) => (
             <MovieCard key={movie.id} movie={movie} />
           ))}
         </div>

@@ -40,15 +40,16 @@ export default function TrailerCard({ movie }: MovieTypes) {
           to={`https://www.youtube.com/watch?v=${srcKey}`}
           target="_blank"
           rel="noopener noreferrer"
+          className="trailer-link"
         >
-          <img src={backdropSrc} alt={movie.title} />
+          <img src={backdropSrc} alt={movie.title} className="trailer-img" />
           <img
             src="src/assets/images/play-icon-light.png"
             alt="play"
             className="icon"
           />
         </Link>
-        <h2>{movie.title}</h2>
+        <h2 className="trailer-name">{movie.title}</h2>
       </div>
     </div>
   );

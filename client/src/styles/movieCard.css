@@ -1,8 +1,8 @@
 .movieCard {
   display: flex;
   flex-direction: column;
-  width: 12rem;
   padding: 1rem;
+  width: min-content;
 }
 
 .titlemoviecard {
@@ -11,13 +11,14 @@
   font-weight: 500;
 }
 
-h3 {
+.movie-year-card {
   font-size: 0.8rem;
   opacity: 0.5;
 }
 
 .img-movie-card {
   border-radius: 16px;
+  height: 15rem;
 }
 
 #rate {
@@ -39,6 +40,7 @@ h3 {
   font-size: 1rem;
   margin-top: -1rem;
   font-weight: 500;
+  max-width: 15ch;
 }
 
 .movie-year-card {

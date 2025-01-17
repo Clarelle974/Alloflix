@@ -19,6 +19,7 @@
 
 .main-title {
   margin-bottom: 2rem;
+  color: var(--primary-color);
 }
 
 .header-search {
