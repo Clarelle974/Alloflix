@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/navbar.css";
+import { useNavigate } from "react-router-dom";
 import Logo from "../assets/images/Alloflix_logo.png";
 
 export default function Navbar() {
   const [isMoviesDropdownVisible, setMoviesDropdownVisible] = useState(false);
   const [isArtistsDropdownVisible, setArtistsDropdownVisible] = useState(false);
   const [searchBarView, setSearchBarView] = useState(false);
+  const [searchedMovie, setSearchedMovie] = useState("");
+
+  const navigate = useNavigate();
 
   const handleMoviesMouseEnter = () => {
     setMoviesDropdownVisible(true);
@@ -26,6 +30,17 @@ export default function Navbar() {
 
   const handleClickSearchIcon = () => {
     setSearchBarView(!searchBarView);
+  };
+
+  const handleChangeSearchBar = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setSearchedMovie(event.currentTarget.value);
+  };
+
+  const sendSearchedMovie = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    navigate(`/search/${searchedMovie}`);
   };
 
   return (
@@ -77,16 +92,18 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-      <div className="searchnav">
+      <form onSubmit={sendSearchedMovie} className="searchnav">
         <input
           type="text"
           placeholder="Rechercher un film..."
           className={searchBarView ? "" : "hide"}
+          onChange={handleChangeSearchBar}
+          value={searchedMovie}
         />
         <button type="button" onClick={handleClickSearchIcon}>
           <img src="src/assets/images/search-icon.png" alt="search" />
         </button>
-      </div>
+      </form>
     </nav>
   );
 }
