@@ -44,6 +44,16 @@ const getCreditsMovie = (movie_id: number) => {
     .catch((error) => console.error(error));
 };
 
+const getSearchMovie = (movie: string) => {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=fr-FR&page=1`,
+      config,
+    )
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
 const getUpcomingMovies = () => {
   return axios
     .get("https://api.themoviedb.org/3/movie/upcoming", config)
@@ -57,5 +67,6 @@ export {
   getDetailsMovie,
   getCreditsMovie,
   getTheaterMovies,
+  getSearchMovie,
   getUpcomingMovies,
 };

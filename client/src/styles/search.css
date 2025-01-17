@@ -1,0 +1,27 @@
+.search > div:first-child {
+  display: flex;
+  justify-content: flex-start;
+  background-color: white;
+  min-width: 40%;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 0.3rem;
+  align-items: center;
+  border-radius: 16px;
+}
+.search > div > p {
+  color: var(--bgcolor);
+  font-size: 1rem;
+}
+
+.search > div > img {
+  width: 1.8rem;
+  margin: 0 2rem 0 2rem;
+}
+
+.search-results {
+  display: flex;
+  margin: 5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
