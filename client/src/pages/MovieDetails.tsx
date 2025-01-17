@@ -52,8 +52,12 @@ export default function MovieDetails() {
         <div className="right">
           <p className="rate">{percentageVote}%</p>
           <p>
-            {details.genres[0].name}, {details.genres[1].name},{" "}
-            {details.genres[2].name}
+            {details.genres.map((genre, index) => (
+              <span key={index as number}>
+                {genre.name}
+                {index < details.genres.length - 1 && ", "}
+              </span>
+            ))}
           </p>
           <h2>"{details.tagline}"</h2>
           <p className="synopsis">Synopsis: {details.overview}</p>
