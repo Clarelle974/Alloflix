@@ -10,7 +10,6 @@ export default function Header() {
   ) => {
     setSearchedMovie(event.currentTarget.value);
   };
-  console.info(searchedMovie);
   const sendSearchedMovie = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     navigate(`/search/${searchedMovie}`);
