@@ -105,3 +105,8 @@
   display: flex;
   align-items: center;
 }
+
+.movie-details {
+  text-decoration: none;
+  list-style: none;
+}
