@@ -40,7 +40,6 @@ export default function MovieDetails() {
   const formatBudget = details.budget.toLocaleString("en-US");
 
   function formatRunTime(runtime: number) {
-    console.info(runtime);
     if (runtime === null || runtime === 0) {
       return "Durée du film non disponible";
     }
@@ -48,6 +47,17 @@ export default function MovieDetails() {
     const minutes = runtime % 60;
     return `${hours}h ${minutes}m`;
   }
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat("fr-FR", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+  };
+
+  const newFormatDate = formatDate(details.release_date);
 
   const percentageVote = Math.trunc(details.vote_average * 10);
 
@@ -85,7 +95,7 @@ export default function MovieDetails() {
           </div>
           <h2 className="tagline">"{details.tagline}"</h2>
           <p className="synopsis">Synopsis: {details.overview}</p>
-          <p className="daterelease">Date de sortie: {details.release_date}</p>
+          <p className="daterelease">Date de sortie: {newFormatDate}</p>
           <p className="country">Pays: {details.origin_country}</p>
           <p className="budget">Budget: ${formatBudget}</p>
         </div>
