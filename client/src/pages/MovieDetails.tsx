@@ -21,6 +21,7 @@ type Details = {
   origin_country: string;
   budget: number;
   tagline: string;
+  runtime: number;
 };
 
 export default function MovieDetails() {
@@ -34,6 +35,16 @@ export default function MovieDetails() {
       behavior: "smooth",
     });
   };
+
+  function formatRunTime(runtime: number) {
+    console.info(runtime);
+    if (runtime === null || runtime === 0) {
+      return "Durée du film non disponible";
+    }
+    const hours = Math.floor(runtime / 60);
+    const minutes = runtime % 60;
+    return `${hours}h ${minutes}min`;
+  }
 
   const percentageVote = Math.trunc(details.vote_average * 10);
 
@@ -65,6 +76,7 @@ export default function MovieDetails() {
               </span>
             ))}
           </p>
+          <p className="runtime">{formatRunTime(details.runtime)}</p>
           <h2>"{details.tagline}"</h2>
           <p className="synopsis">Synopsis: {details.overview}</p>
           <p className="daterelease">Date de sortie: {details.release_date}</p>
