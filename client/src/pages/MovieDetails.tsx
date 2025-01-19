@@ -43,7 +43,7 @@ export default function MovieDetails() {
     }
     const hours = Math.floor(runtime / 60);
     const minutes = runtime % 60;
-    return `${hours}h ${minutes}min`;
+    return `${hours}h ${minutes}m`;
   }
 
   const percentageVote = Math.trunc(details.vote_average * 10);
@@ -68,16 +68,19 @@ export default function MovieDetails() {
         </div>
         <div className="right">
           <p className="rate">{percentageVote}%</p>
-          <p>
-            {details.genres.map((genre, index) => (
-              <span key={index as number}>
-                {genre.name}
-                {index < details.genres.length - 1 && ", "}
-              </span>
-            ))}
-          </p>
-          <p className="runtime">{formatRunTime(details.runtime)}</p>
-          <h2>"{details.tagline}"</h2>
+          <div className="infos-movie">
+            <p>
+              {details.genres.map((genre, index) => (
+                <span key={index as number}>
+                  {genre.name}
+                  {index < details.genres.length - 1 && ", "}
+                </span>
+              ))}
+              <span> -</span>
+            </p>
+            <p className="runtime">{formatRunTime(details.runtime)}</p>
+          </div>
+          <h2 className="tagline">"{details.tagline}"</h2>
           <p className="synopsis">Synopsis: {details.overview}</p>
           <p className="daterelease">Date de sortie: {details.release_date}</p>
           <p className="country">Pays: {details.origin_country}</p>
