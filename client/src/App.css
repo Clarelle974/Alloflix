@@ -23,3 +23,7 @@ main {
   display: flex;
   margin-top: 1rem;
 }
+
+p:empty {
+  display: none;
+}
