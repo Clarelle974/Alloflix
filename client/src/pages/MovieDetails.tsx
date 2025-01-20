@@ -29,12 +29,15 @@ export default function MovieDetails() {
     details: Details;
     cast: ActorTypes[];
   };
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
+
+  const formatBudget = details.budget.toLocaleString("en-US");
 
   function formatRunTime(runtime: number) {
     console.info(runtime);
@@ -84,7 +87,7 @@ export default function MovieDetails() {
           <p className="synopsis">Synopsis: {details.overview}</p>
           <p className="daterelease">Date de sortie: {details.release_date}</p>
           <p className="country">Pays: {details.origin_country}</p>
-          <p className="budget">Budget: {details.budget}$</p>
+          <p className="budget">Budget: ${formatBudget}</p>
         </div>
       </section>
       <h1 className="titlecast">Casting</h1>
