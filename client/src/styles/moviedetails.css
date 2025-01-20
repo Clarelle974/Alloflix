@@ -52,6 +52,18 @@
   margin-left: 6rem;
 }
 
+.infos-movie {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.tagline {
+  opacity: 0.7;
+  font-weight: 400;
+  font-size: 1rem;
+  font-style: italic;
+}
+
 .rate {
   display: flex;
   background: linear-gradient(#00ff00, #00a927);
