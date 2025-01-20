@@ -20,6 +20,12 @@ export default function MovieCard({ movie }: MovieTypes) {
     });
   };
 
+  const changeColorVote = (vote: number) => {
+    if (vote >= 70) return "green";
+    if (vote >= 50) return "orange";
+    return "red";
+  };
+
   return (
     <div className="cards-display">
       <div className="movieCard">
@@ -34,7 +40,9 @@ export default function MovieCard({ movie }: MovieTypes) {
             className="img-movie-card"
           />
         </Link>
-        <div id="rate">{percentageVote}%</div>
+        <div className={`rate-${changeColorVote(percentageVote)}`}>
+          {percentageVote}%
+        </div>
         <h2 className="movie-title-card">{movie.title}</h2>
         <h3 className="movie-year-card">{year}</h3>
       </div>
