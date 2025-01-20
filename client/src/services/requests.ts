@@ -86,6 +86,13 @@ const getUpcomingMovies = () => {
     .catch((error) => console.error(error));
 };
 
+const getTopRatedMovies = () => {
+  return axios
+    .get("https://api.themoviedb.org/3/movie/top_rated", config)
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
 export {
   getArtists,
   getPopularMovies,
@@ -94,6 +101,7 @@ export {
   getDetailsArtist,
   getCombinedCredits,
   getTheaterMovies,
+  getTopRatedMovies,
   getSearchMovie,
   getUpcomingMovies,
 };

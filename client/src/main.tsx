@@ -27,6 +27,7 @@ import {
   getPopularMovies,
   getSearchMovie,
   getTheaterMovies,
+  getTopRatedMovies,
   getUpcomingMovies,
 } from "./services/requests";
 
@@ -57,6 +58,7 @@ const router = createBrowserRouter([
         path: "/movies/:type",
         element: <Movies />,
         loader: async () => ({
+          toprated: await getTopRatedMovies(),
           popular: await getPopularMovies(),
           theater: await getTheaterMovies(),
           upcoming: await getUpcomingMovies(),

@@ -19,9 +19,13 @@ export default function Movies() {
     upcoming: MovieTypes[];
     theater: MovieTypes[];
   };
-  let h2ListTitle = "Films populaires";
-  let data = allData.popular;
+  let h2ListTitle = "Films les mieux notés";
+  let data = allData.toprated;
 
+  if (type === "popular") {
+    h2ListTitle = "Films populaires";
+    data = allData.popular;
+  }
   if (type === "upcoming") {
     h2ListTitle = "Prochainement à l'affiche";
     data = allData.upcoming;
