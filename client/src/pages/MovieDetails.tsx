@@ -74,7 +74,11 @@ export default function MovieDetails() {
         <div className="left">
           <h1 className="namedetails">{details.original_title}</h1>
           <img
-            src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
+            src={
+              details.poster_path
+                ? `https://image.tmdb.org/t/p/w500${details.poster_path}`
+                : "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"
+            }
             alt=""
             className="poster"
           />
@@ -93,11 +97,19 @@ export default function MovieDetails() {
             </p>
             <p className="runtime">{formatRunTime(details.runtime)}</p>
           </div>
-          <h2 className="tagline">"{details.tagline}"</h2>
-          <p className="synopsis">Synopsis: {details.overview}</p>
+          <h2 className="tagline">
+            {details.tagline ? `"${details.tagline}"` : ""}
+          </h2>
+          <p className="synopsis">
+            {details.overview
+              ? `Synopsis: ${details.overview}`
+              : "Il n'y a pas d' informations pour ce film"}
+          </p>
           <p className="daterelease">Date de sortie: {newFormatDate}</p>
           <p className="country">Pays: {details.origin_country}</p>
-          <p className="budget">Budget: ${formatBudget}</p>
+          <p className="budget">
+            Budget: {details.budget > 0 ? `$${formatBudget}` : "Non disponible"}
+          </p>
         </div>
       </section>
       <h1 className="titlecast">Casting</h1>

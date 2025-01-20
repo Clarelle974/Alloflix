@@ -45,7 +45,11 @@ export default function ArtistDetails() {
         <div className="left">
           <h1 className="namedetails">{data.name}</h1>
           <img
-            src={`https://image.tmdb.org/t/p/w500${data.profile_path}`}
+            src={
+              data.profile_path
+                ? `https://image.tmdb.org/t/p/w500${data.profile_path}`
+                : "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-4-user-grey-d8fe957375e70239d6abdd549fd7568c89281b2179b5f4470e2e12895792dfa5.svg"
+            }
             alt="acteur"
             className="poster"
           />
@@ -59,7 +63,11 @@ export default function ArtistDetails() {
             Date de naissance: {formatDate(data.birthday)}
           </p>
           <p>{deathDate()}</p>
-          <p className="biography">{data.biography}</p>
+          <p className="biography">
+            {data.biography
+              ? data.biography
+              : "Nous n' avons pas d' autres informations sur cet artiste"}
+          </p>
         </div>
       </section>
       <h2 className="filmotitle">Filmographie</h2>

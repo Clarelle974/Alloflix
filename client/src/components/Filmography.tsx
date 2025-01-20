@@ -21,7 +21,11 @@ export default function Filmography({ actor }: ActorTypes) {
       <div className="cardcast">
         <h3 className="castname">{actor.character}</h3>
         <img
-          src={`https://image.tmdb.org/t/p/w500${actor.poster_path}`}
+          src={
+            actor.poster_path
+              ? `https://image.tmdb.org/t/p/w500${actor.poster_path}`
+              : "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"
+          }
           alt="acteur"
           className="profilepic"
         />
