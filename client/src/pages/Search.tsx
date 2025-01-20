@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import Header from "../components/Header";
 import MovieCard from "../components/MovieCard";
 
 import "../styles/search.css";
@@ -6,6 +7,7 @@ import "../styles/search.css";
 interface ResultsTypes {
   id: number;
   title: string;
+  backdrop_path: string;
   poster_path: string;
   vote_average: number;
   release_date: string;
@@ -14,19 +16,15 @@ interface ResultsTypes {
 export default function Search() {
   const { movie } = useParams();
   const results = useLoaderData() as ResultsTypes[];
-
+  const backgroundImg = results[0].backdrop_path;
   return (
     <>
-      <div className="search">
-        <div>
-          <img src="/src/assets/images/search-icon.png" alt="search" />
-          <p>{movie}</p>
-        </div>
-        <div className="search-results">
-          {results.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-          ))}
-        </div>
+      <Header backgroundImg={backgroundImg} />
+      <div className="search-results">
+        <p>Résultats pour {movie}</p>
+        {results.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
       </div>
     </>
   );
