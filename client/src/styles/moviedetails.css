@@ -63,21 +63,6 @@
   font-style: italic;
 }
 
-.rate {
-  display: flex;
-  background: linear-gradient(#00ff00, #00a927);
-  border-radius: 50%;
-  aspect-ratio: 1;
-  width: 3rem;
-  font-weight: 800;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  top: -1.5rem;
-  left: 1rem;
-  font-size: 0.9rem;
-}
-
 .left {
   margin-left: 4rem;
   margin-top: 2rem;

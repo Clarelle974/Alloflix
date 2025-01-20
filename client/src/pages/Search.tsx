@@ -1,5 +1,6 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import CastingCard from "../components/CastingCard";
+
 import Header from "../components/Header";
 import MovieCard from "../components/MovieCard";
 import "../styles/search.css";
@@ -46,7 +47,6 @@ export default function Search() {
               {searchedItem.media_type === "movie" && (
                 <MovieCard movie={searchedItem} />
               )}
-              {/* ligne suivante à remplacer quand ArtistCard sera prêt  */}
               {searchedItem.media_type === "person" && (
                 <Link to={`/artistdetails/${searchedItem.id}`}>
                   <CastingCard cast={searchedItem} />
