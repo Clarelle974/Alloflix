@@ -27,3 +27,7 @@ main {
 p:empty {
   display: none;
 }
+
+.tagline:empty {
+  display: none;
+}
