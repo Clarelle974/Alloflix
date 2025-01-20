@@ -2,7 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/header.css";
 
-export default function Header() {
+interface HeaderProps {
+  backgroundImg: string;
+}
+
+export default function Header({ backgroundImg }: HeaderProps) {
   const [searchedMovie, setSearchedMovie] = useState("");
   const navigate = useNavigate();
   const handleChangeSearchBar = (
@@ -16,7 +20,14 @@ export default function Header() {
   };
 
   return (
-    <header className="header">
+    <header
+      style={{
+        backgroundImage: `linear-gradient(rgba(11, 11, 11, 0.7), rgba(11, 11, 11, 0.7)), url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${backgroundImg}')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+      className="header"
+    >
       <div className="header-container">
         <div className="input">
           <h1 className="main-title">Bienvenue sur Alloflix</h1>
