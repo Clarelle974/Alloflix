@@ -13,10 +13,21 @@ interface MovieTypes {
 export default function MovieCard({ movie }: MovieTypes) {
   const percentageVote = Math.trunc(movie.vote_average * 10);
   const year = movie.release_date.split("-")[0];
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="cards-display">
       <div className="movieCard">
-        <Link to={`/moviedetails/${movie.id}`} className="link-movie">
+        <Link
+          to={`/moviedetails/${movie.id}`}
+          className="link-movie"
+          onClick={scrollToTop}
+        >
           <img
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt={movie.title}

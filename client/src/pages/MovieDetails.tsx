@@ -28,6 +28,12 @@ export default function MovieDetails() {
     details: Details;
     cast: ActorTypes[];
   };
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const percentageVote = Math.trunc(details.vote_average * 10);
 
@@ -69,7 +75,11 @@ export default function MovieDetails() {
       <h1 className="titlecast">Casting</h1>
       <div className="cast2">
         {cast.slice(0, 7).map((actor) => (
-          <Link to={`/artistdetails/${actor.id}`} key={actor.id}>
+          <Link
+            to={`/artistdetails/${actor.id}`}
+            key={actor.id}
+            onClick={scrollToTop}
+          >
             <CastingCard cast={actor} />
           </Link>
         ))}

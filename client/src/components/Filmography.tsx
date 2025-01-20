@@ -9,8 +9,15 @@ interface ActorTypes {
 }
 
 export default function Filmography({ actor }: ActorTypes) {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <Link to={`/moviedetails/${actor.id}`} key={actor.id}>
+    <Link to={`/moviedetails/${actor.id}`} key={actor.id} onClick={scrollToTop}>
       <div className="cardcast">
         <h3 className="castname">{actor.character}</h3>
         <img
