@@ -12,8 +12,7 @@ interface Cardtypes {
 
 export default function CastingCard({ cast }: Cardtypes) {
   return (
-    <div>
-      <h3 className="castname">{cast.name}</h3>
+    <div className="movieCard">
       <img
         src={
           cast.profile_path
@@ -23,6 +22,7 @@ export default function CastingCard({ cast }: Cardtypes) {
         alt=""
         className="profilepic"
       />
+      <h3 className="castname">{cast.name}</h3>
     </div>
   );
 }

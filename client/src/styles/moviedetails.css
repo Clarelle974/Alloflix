@@ -25,9 +25,8 @@
   border-radius: 10px;
 }
 .profilepic {
-  height: 14rem;
-  width: 10rem;
-  border-radius: 10px;
+  border-radius: 16px;
+  height: 15rem;
 }
 
 .cardcast {
@@ -98,7 +97,11 @@
 }
 
 .castname {
-  padding: 1rem;
+  font-size: 1rem;
+  margin-top: -1rem;
+  font-weight: 500;
+  max-width: 15ch;
+  margin-top: 2rem;
 }
 
 .cardcast {
@@ -109,4 +112,8 @@
 .movie-details {
   text-decoration: none;
   list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
