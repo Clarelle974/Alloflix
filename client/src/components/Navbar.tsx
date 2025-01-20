@@ -111,7 +111,7 @@ export default function Navbar() {
           onChange={handleChangeSearchBar}
           value={searchedMovie}
         />
-        <button type="button" onClick={handleClickSearchIcon}>
+        <button type="submit" onClick={handleClickSearchIcon}>
           <img src="src/assets/images/search-icon.png" alt="search" />
         </button>
       </form>
