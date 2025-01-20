@@ -61,6 +61,12 @@ export default function MovieDetails() {
 
   const percentageVote = Math.trunc(details.vote_average * 10);
 
+  const changeColorVote = (vote: number) => {
+    if (vote >= 70) return "green";
+    if (vote >= 50) return "orange";
+    return "red";
+  };
+
   return (
     <section className="alldetails">
       <section
@@ -80,7 +86,9 @@ export default function MovieDetails() {
           />
         </div>
         <div className="right">
-          <p className="rate">{percentageVote}%</p>
+          <p className={`rate-${changeColorVote(percentageVote)}`}>
+            {percentageVote}%
+          </p>
           <div className="infos-movie">
             <p>
               {details.genres.map((genre, index) => (
