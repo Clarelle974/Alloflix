@@ -4,7 +4,7 @@ interface Cardtypes {
   cast: {
     name: string;
     profile_path: string;
-    id: string;
+    id: number;
     character: string;
     poster_path: string;
   };

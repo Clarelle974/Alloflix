@@ -4,7 +4,7 @@ import CastingCard from "../components/CastingCard";
 import "../styles/moviedetails.css";
 
 interface ActorTypes {
-  id: string;
+  id: number;
   character: string;
   poster_path: string;
   name: string;
