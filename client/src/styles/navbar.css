@@ -22,15 +22,14 @@
 .link-nav > ul {
   display: flex;
   list-style: none;
-}
-
-.link-nav > ul > li {
-  margin-right: 20px; /* Espacement entre les liens */
+  position: absolute;
+  gap: 8rem;
 }
 
 /* Style des liens */
 .link-nav > ul > li > a {
   text-decoration: none;
+  list-style: none;
   font-size: 16px;
 }
 
@@ -71,4 +70,26 @@
 
 .searchnav > button > img {
   width: 2rem;
+}
+
+li,
+a:hover {
+  list-style: none;
+  text-decoration: none;
+}
+
+.dropdown-menu {
+  position: absolute;
+}
+
+.link {
+  background-color: #777777;
+  display: flex;
+  border-radius: 5px;
+  text-decoration: none;
+  color: hsl(0, 0%, 99%);
+}
+
+.link-nav {
+  margin-right: 40rem;
 }
