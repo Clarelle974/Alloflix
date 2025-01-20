@@ -1,0 +1,43 @@
+.joinus-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+}
+
+.joinus {
+  margin-bottom: 2rem;
+}
+
+.presentation-text {
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+}
+
+.link-joinus {
+  background-color: var(--primary-color);
+  color: var(--bgcolor);
+  box-shadow: inset 0 0 0 0 var(--bgcolor);
+  border: 2px solid var(--primary-color);
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 1rem;
+  transition: color .5s ease-in-out, box-shadow 0.5s ease-in-out;
+  width: 5rem;
+}
+.link-joinus:hover {
+  color: var(--primary-color);
+  box-shadow: inset 200px 0 0 0 var(--bgcolor);
+}
+
+.li-joinus {
+  list-style-type: disc !important;
+}
+
+.list-text {
+  margin-top: 3rem;
+  font-size: 1.2rem;
+}
