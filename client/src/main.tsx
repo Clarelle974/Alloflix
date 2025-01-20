@@ -20,7 +20,6 @@ import Search from "./pages/Search";
 
 import {
   getArtists,
-  getCategories,
   getCombinedCredits,
   getCreditsMovie,
   getDetailsArtist,
@@ -28,6 +27,7 @@ import {
   getPopularMovies,
   getSearchMovie,
   getTheaterMovies,
+  getTopRatedMovies,
   getUpcomingMovies,
 } from "./services/requests";
 
@@ -53,10 +53,16 @@ const router = createBrowserRouter([
         }),
         errorElement: <Page404 />,
       },
+
       {
-        path: "/movies",
+        path: "/movies/:type",
         element: <Movies />,
-        loader: getCategories,
+        loader: async () => ({
+          toprated: await getTopRatedMovies(),
+          popular: await getPopularMovies(),
+          theater: await getTheaterMovies(),
+          upcoming: await getUpcomingMovies(),
+        }),
       },
       {
         path: "/search/:userSearch",

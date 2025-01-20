@@ -60,21 +60,26 @@ export default function Navbar() {
             onMouseEnter={handleMoviesMouseEnter}
             onMouseLeave={handleMoviesMouseLeave}
           >
-            <Link to="/movies">Films</Link>
+            <Link to="/movies/top-rated">Films</Link>
             {isMoviesDropdownVisible && (
               <ul className="dropdown-menu">
                 <li>
-                  <Link to="/movies/populaires" className="link">
+                  <Link to="/movies/toprated" className="link">
+                    Les mieux notés
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/movies/popular" className="link">
                     Populaires
                   </Link>
                 </li>
                 <li>
-                  <Link to="/movies/dumoment" className="link">
+                  <Link to="/movies/now-playing" className="link">
                     Du moment
                   </Link>
                 </li>
                 <li>
-                  <Link to="/movies/avenir" className="link">
+                  <Link to="/movies/upcoming" className="link">
                     À venir
                   </Link>
                 </li>
