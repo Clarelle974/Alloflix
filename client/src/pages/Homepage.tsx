@@ -14,7 +14,6 @@ export default function Homepage() {
     popular: Homepage[];
   };
   const backgroundImg = popular[0].backdrop_path;
-  console.info(backgroundImg);
   return (
     <>
       <Header backgroundImg={backgroundImg} />

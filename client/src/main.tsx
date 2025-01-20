@@ -38,6 +38,7 @@ import {
 
 // Create router configuration with routes
 // You can add more routes as you build out your app!
+
 const router = createBrowserRouter([
   {
     element: <App />,
@@ -58,9 +59,9 @@ const router = createBrowserRouter([
         loader: getCategories,
       },
       {
-        path: "/search/:movie",
+        path: "/search/:userSearch",
         element: <Search />,
-        loader: ({ params }) => getSearchMovie(String(params.movie)),
+        loader: ({ params }) => getSearchMovie(String(params.userSearch)),
       },
       {
         path: "/artists",

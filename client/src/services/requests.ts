@@ -76,10 +76,10 @@ const getCombinedCredits = (person_id: number) => {
     .then((response) => response.data.cast);
 };
 
-const getSearchMovie = (movie: string) => {
+const getSearchMovie = (userSearch: string) => {
   return axios
     .get(
-      `https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=fr-FR&page=1`,
+      `https://api.themoviedb.org/3/search/multi?query=${userSearch}&include_adult=false&language=fr-FR&page=1`,
       config,
     )
     .then((response) => response.data.results)
