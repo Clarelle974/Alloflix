@@ -32,6 +32,13 @@ const getCategories = () => {
     .catch((error) => console.error(error));
 };
 
+const getArtists = () => {
+  return axios
+    .get("https://api.themoviedb.org/3/person/popular", config)
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
 const getTheaterMovies = () => {
   return axios
     .get("https://api.themoviedb.org/3/movie/now_playing", configPage2)
@@ -83,11 +90,11 @@ const getUpcomingMovies = () => {
   return axios
     .get("https://api.themoviedb.org/3/movie/upcoming", configPage2)
     .then((response) => response.data.results)
-
     .catch((error) => console.error(error));
 };
 
 export {
+  getArtists,
   getCategories,
   getPopularMovies,
   getDetailsMovie,

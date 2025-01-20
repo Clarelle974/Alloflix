@@ -17,7 +17,9 @@ import Search from "./pages/Search";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
+
 import {
+  getArtists,
   getCategories,
   getCombinedCredits,
   getCreditsMovie,
@@ -63,6 +65,7 @@ const router = createBrowserRouter([
       {
         path: "/artists",
         element: <Artists />,
+        loader: getArtists,
       },
       {
         path: "/moviedetails/:movie_id",
