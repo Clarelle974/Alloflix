@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import ArtistCard from "../components/ArtistCard";
+import "../styles/artistcard.css";
 
 interface ArtistsTypes {
   id: number;
@@ -19,7 +20,7 @@ export default function Artists() {
 
   return (
     <>
-      <h1>Page des artistes</h1>
+      <h1 className="title">Artistes</h1>
       <section className="section-artists">
         {data.map((artist) => (
           <ArtistCard key={artist.id} artist={artist} />
