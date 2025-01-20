@@ -5,7 +5,7 @@ import "../styles/movies.css";
 
 interface MovieTypes {
   id: number;
-  title: string; //ou name ?
+  title: string;
   poster_path: string;
   vote_average: number;
   release_date: string;

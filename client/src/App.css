@@ -1,6 +1,6 @@
 :root {
   --bgcolor: #141414;
-  --primary-color: #f0eeee;
+  --primary-color: white;
 }
 
 * {
@@ -22,4 +22,8 @@ main {
 .cards-display {
   display: flex;
   margin-top: 1rem;
+}
+
+p:empty {
+  display: none;
 }

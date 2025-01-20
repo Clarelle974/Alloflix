@@ -15,6 +15,7 @@ interface ArtistsTypes {
 
 export default function Artists() {
   const data = useLoaderData() as ArtistsTypes[];
+  console.info(data);
 
   return (
     <>

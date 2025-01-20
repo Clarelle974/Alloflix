@@ -17,8 +17,19 @@ import Search from "./pages/Search";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
-import { getCategories, getPopularMovies } from "./services/requests";
-import { getArtists } from "./services/requests";
+
+import {
+  getArtists,
+  getCategories,
+  getCombinedCredits,
+  getCreditsMovie,
+  getDetailsArtist,
+  getDetailsMovie,
+  getPopularMovies,
+  getSearchMovie,
+  getTheaterMovies,
+  getUpcomingMovies,
+} from "./services/requests";
 
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
@@ -34,7 +45,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Homepage />,
-        loader: getPopularMovies,
+        loader: async () => ({
+          popular: await getPopularMovies(),
+          theater: await getTheaterMovies(),
+          upcoming: await getUpcomingMovies(),
+        }),
         errorElement: <Page404 />,
       },
       {
@@ -43,8 +58,9 @@ const router = createBrowserRouter([
         loader: getCategories,
       },
       {
-        path: "/search",
+        path: "/search/:movie",
         element: <Search />,
+        loader: ({ params }) => getSearchMovie(String(params.movie)),
       },
       {
         path: "/artists",
@@ -52,12 +68,20 @@ const router = createBrowserRouter([
         loader: getArtists,
       },
       {
-        path: "/moviedetails",
+        path: "/moviedetails/:movie_id",
         element: <MovieDetails />,
+        loader: async ({ params }) => ({
+          cast: await getCreditsMovie(Number(params.movie_id)),
+          details: await getDetailsMovie(Number(params.movie_id)),
+        }),
       },
       {
-        path: "/artistdetails",
+        path: "/artistdetails/:person_id",
         element: <ArtistDetails />,
+        loader: async ({ params }) => ({
+          data: await getDetailsArtist(Number(params.person_id)),
+          credits: await getCombinedCredits(Number(params.person_id)),
+        }),
       },
     ],
   },

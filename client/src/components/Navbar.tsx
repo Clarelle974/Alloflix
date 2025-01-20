@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/navbar.css";
+import { useNavigate } from "react-router-dom";
 import Logo from "../assets/images/Alloflix_logo.png";
 
 export default function Navbar() {
   const [isMoviesDropdownVisible, setMoviesDropdownVisible] = useState(false);
   const [isArtistsDropdownVisible, setArtistsDropdownVisible] = useState(false);
+  const [searchBarView, setSearchBarView] = useState(false);
+  const [searchedMovie, setSearchedMovie] = useState("");
+
+  const navigate = useNavigate();
 
   const handleMoviesMouseEnter = () => {
     setMoviesDropdownVisible(true);
@@ -23,11 +28,28 @@ export default function Navbar() {
     setArtistsDropdownVisible(false);
   };
 
+  const handleClickSearchIcon = () => {
+    setSearchBarView(!searchBarView);
+  };
+
+  const handleChangeSearchBar = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setSearchedMovie(event.currentTarget.value);
+  };
+
+  const sendSearchedMovie = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    navigate(`/search/${searchedMovie}`);
+  };
+
   return (
     <nav className="navbar">
-      <div className="logo">
-        <img src={Logo} alt="Alloflix Logo" />
-      </div>
+      <Link to={"/"}>
+        <div className="logo">
+          <img src={Logo} alt="Alloflix Logo" />
+        </div>
+      </Link>
       <div className="link-nav">
         <ul>
           <li>
@@ -70,13 +92,18 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-      <div className="searchnav">
+      <form onSubmit={sendSearchedMovie} className="searchnav">
         <input
           type="text"
           placeholder="Rechercher un film..."
-          className="input-navbar"
+          className={searchBarView ? "" : "hide"}
+          onChange={handleChangeSearchBar}
+          value={searchedMovie}
         />
-      </div>
+        <button type="button" onClick={handleClickSearchIcon}>
+          <img src="src/assets/images/search-icon.png" alt="search" />
+        </button>
+      </form>
     </nav>
   );
 }

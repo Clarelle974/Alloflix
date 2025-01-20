@@ -4,13 +4,16 @@
   width: 20rem;
   padding: 1rem;
 }
-.trailer img {
+
+.trailer-img {
   border-radius: 1rem;
 }
-.trailer a {
+
+.trailer-link {
   position: relative;
   display: block;
 }
+
 .icon {
   position: absolute;
   top: 50%;
@@ -24,4 +27,9 @@
 .icon:hover {
   width: 14rem;
   opacity: 1;
+}
+
+.trailer-name {
+  font-size: 1rem;
+  font-weight: 500;
 }
