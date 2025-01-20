@@ -1,5 +1,6 @@
-import { useLoaderData, useParams } from "react-router-dom";
-import ArtistCard from "../components/CastingCard";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+import CastingCard from "../components/CastingCard";
+
 import Header from "../components/Header";
 import MovieCard from "../components/MovieCard";
 import "../styles/search.css";
@@ -36,8 +37,8 @@ export default function Search() {
   return (
     <>
       <Header backgroundImg={backgroundImg} />
+      <p className="resultsfor">Résultats pour: {userSearch}</p>
       <div className="search-results">
-        <p>Résultats pour {userSearch}</p>
         {results.length === 0 ? (
           <p>Aucun résultat trouvé.</p>
         ) : (
@@ -47,7 +48,9 @@ export default function Search() {
                 <MovieCard movie={searchedItem} />
               )}
               {searchedItem.media_type === "person" && (
-                <ArtistCard cast={searchedItem} />
+                <Link to={`/artistdetails/${searchedItem.id}`}>
+                  <CastingCard cast={searchedItem} />
+                </Link>
               )}
             </div>
           ))

@@ -19,7 +19,6 @@ export default function Filmography({ actor }: ActorTypes) {
   return (
     <Link to={`/moviedetails/${actor.id}`} key={actor.id} onClick={scrollToTop}>
       <div className="cardcast">
-        <h3 className="castname">{actor.character}</h3>
         <img
           src={
             actor.poster_path
@@ -29,6 +28,7 @@ export default function Filmography({ actor }: ActorTypes) {
           alt="acteur"
           className="profilepic"
         />
+        <h3 className="castname">{actor.character}</h3>
       </div>
     </Link>
   );

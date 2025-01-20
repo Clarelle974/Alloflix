@@ -25,3 +25,13 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.search-results {
+  margin-top: 4rem;
+  display: flex;
+  align-items: baseline;
+}
+.resultsfor {
+  margin-left: 13rem;
+  margin-top: 3rem;
+}
