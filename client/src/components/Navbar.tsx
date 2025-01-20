@@ -64,13 +64,19 @@ export default function Navbar() {
             {isMoviesDropdownVisible && (
               <ul className="dropdown-menu">
                 <li>
-                  <Link to="/movies/populaires">Populaires</Link>
+                  <Link to="/movies/populaires" className="link">
+                    Populaires
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/movies/dumoment">Du moment</Link>
+                  <Link to="/movies/dumoment" className="link">
+                    Du moment
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/movies/avenir">À venir</Link>
+                  <Link to="/movies/avenir" className="link">
+                    À venir
+                  </Link>
                 </li>
               </ul>
             )}
@@ -84,8 +90,13 @@ export default function Navbar() {
             {isArtistsDropdownVisible && (
               <ul className="artists-dropdown-menu">
                 <li>
-                  <Link to="/artists/acteurs">Acteurs</Link>
-                  <Link to="/artists/realisateurs">Réalisateurs</Link>
+                  <Link to="/artists/acteurs" className="link">
+                    Acteurs
+                  </Link>
+
+                  <Link to="/artists/realisateurs" className="link">
+                    Réalisateurs
+                  </Link>
                 </li>
               </ul>
             )}
