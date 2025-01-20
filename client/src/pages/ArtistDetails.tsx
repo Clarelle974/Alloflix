@@ -8,6 +8,7 @@ interface Datatypes {
   place_of_birth: string;
   birthday: string;
   biography: string;
+  deathday: string;
 }
 
 interface ActorTypes {
@@ -19,6 +20,23 @@ export default function ArtistDetails() {
   const { data, credits } = useLoaderData() as {
     data: Datatypes;
     credits: ActorTypes[];
+  };
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat("fr-FR", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+  };
+
+  const deathDate = () => {
+    if (!data.deathday) {
+      null;
+    } else {
+      return <p>Date de décès: {formatDate(data.deathday)}</p>;
+    }
   };
 
   return (
@@ -37,7 +55,10 @@ export default function ArtistDetails() {
           <h4 className="originactor">
             Lieu de naissance: {data.place_of_birth}
           </h4>
-          <p className="birthday">Date de naissance: {data.birthday}</p>
+          <p className="birthday">
+            Date de naissance: {formatDate(data.birthday)}
+          </p>
+          <p>{deathDate()}</p>
           <p className="biography">{data.biography}</p>
         </div>
       </section>
