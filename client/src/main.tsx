@@ -17,7 +17,6 @@ import Search from "./pages/Search";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
-
 import {
   getArtists,
   getCombinedCredits,

@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="join">
         <div className="logo">
           <img src={Logo} alt="Alloflix" className="alloflix-logo" />
-          <Link to={"#"} className="community">
+          <Link to="/signin" className="community">
             Rejoindre la communauté
           </Link>
         </div>
