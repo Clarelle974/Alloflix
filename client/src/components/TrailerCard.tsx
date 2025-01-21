@@ -6,7 +6,7 @@ import "../styles/trailerCard.css";
 interface MovieTypes {
   movie: {
     id: number;
-    backdrop_path: string;
+    backdrop_path: string | null;
     title: string;
     poster_path: string;
     vote_average: number;
