@@ -39,6 +39,13 @@ const getArtists = () => {
     .catch((error) => console.error(error));
 };
 
+const getArtistsActeurs = () => {
+  return axios
+    .get("https://api.themoviedb.org/3/person/popular", config)
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
 const getTheaterMovies = () => {
   return axios
     .get("https://api.themoviedb.org/3/movie/now_playing", configPage2)
@@ -95,6 +102,7 @@ const getUpcomingMovies = () => {
 
 export {
   getArtists,
+  getArtistsActeurs,
   getCategories,
   getPopularMovies,
   getDetailsMovie,
