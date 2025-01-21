@@ -41,6 +41,7 @@ import {
 const router = createBrowserRouter([
   {
     element: <App />,
+    errorElement: <Page404 />,
     children: [
       {
         path: "/",
@@ -50,9 +51,7 @@ const router = createBrowserRouter([
           theater: await getTheaterMovies(),
           upcoming: await getUpcomingMovies(),
         }),
-        errorElement: <Page404 />,
       },
-
       {
         path: "/movies/:type",
         element: <Movies />,
