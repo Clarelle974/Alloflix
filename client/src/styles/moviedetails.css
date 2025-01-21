@@ -16,6 +16,30 @@
   gap: 2rem;
 }
 
+.top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  a {
+    display: flex;
+    max-height: 3rem;
+    align-items: center;
+    background-color: var(--bgcolor);
+    opacity: 0.8;
+    position: relative;
+    top: -1.5rem;
+    left: 3rem;
+    align-content: center;
+    padding-right: 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    img {
+      width: 4rem;
+    }
+  }
+}
+
 .namedetails {
   padding: 2rem;
   border: solid 1px white;
