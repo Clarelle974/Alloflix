@@ -26,6 +26,7 @@ export default function Trailer() {
 
   return (
     <section
+      className="trailer-container"
       style={{
         backgroundImage: hoverTrailer?.backdrop_path
           ? `linear-gradient(rgba(20, 20, 20, 0.62), rgba(14, 14, 14, 0.7)),url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${
@@ -43,7 +44,7 @@ export default function Trailer() {
             <div
               key={movie.id}
               onMouseEnter={() => setHoverTrailer(movie)}
-              onMouseLeave={() => setHoverTrailer(popular[0])}
+              onMouseLeave={() => setHoverTrailer(movie)}
             >
               <TrailerCard key={movie.id} movie={movie} />
             </div>

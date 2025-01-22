@@ -1,3 +1,7 @@
+.trailer-container {
+  min-height: calc(100vh - 948px);
+}
+
 .trailer {
   display: flex;
   flex-direction: column;
