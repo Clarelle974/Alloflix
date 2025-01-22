@@ -14,8 +14,8 @@ export default function Homepage() {
   const { popular } = useLoaderData() as {
     popular: Homepage[];
   };
-  const backgroundImg = popular[0].backdrop_path;
-  const backgroundImgJoinUs = popular[1].backdrop_path;
+  const backgroundImg = popular[1].backdrop_path;
+  const backgroundImgJoinUs = popular[2].backdrop_path;
   return (
     <>
       <Header backgroundImg={backgroundImg} />
