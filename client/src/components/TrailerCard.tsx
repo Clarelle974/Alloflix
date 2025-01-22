@@ -2,11 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/trailerCard.css";
+import playIcon from "../assets/images/play-icon-light.png";
 
 interface MovieTypes {
   movie: {
     id: number;
-    backdrop_path: string;
+    backdrop_path: string | null;
     title: string;
     poster_path: string;
     vote_average: number;
@@ -33,6 +34,10 @@ export default function TrailerCard({ movie }: MovieTypes) {
       .catch((error) => console.error(error));
   }, [movie.id]);
 
+  if (!srcKey) {
+    return null;
+  }
+
   return (
     <div className="cards-display">
       <div className="trailer">
@@ -43,11 +48,7 @@ export default function TrailerCard({ movie }: MovieTypes) {
           className="trailer-link"
         >
           <img src={backdropSrc} alt={movie.title} className="trailer-img" />
-          <img
-            src="src/assets/images/play-icon-light.png"
-            alt="play"
-            className="icon"
-          />
+          <img src={playIcon} alt="play" className="icon" />
         </Link>
         <h2 className="trailer-name">{movie.title}</h2>
       </div>

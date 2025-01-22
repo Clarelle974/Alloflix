@@ -2,15 +2,18 @@ import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CastingCard from "../components/CastingCard";
 import "../styles/moviedetails.css";
+import playIcon from "../assets/images/play-icon-light.png";
+import MovieCard from "../components/MovieCard";
 
 interface ActorTypes {
-  id: string;
+  id: number;
   character: string;
   poster_path: string;
   name: string;
   profile_path: string;
 }
 type Details = {
+  id: number;
   backdrop_path?: string;
   vote_average: number;
   original_title: string;
@@ -21,13 +24,26 @@ type Details = {
   origin_country: string;
   budget: number;
   tagline: string;
+  title: string;
   runtime: number;
+  videos: Videos;
 };
+interface Videos {
+  results: VideoResults[];
+}
+interface VideoResults {
+  name: string;
+  key: string;
+  site: string;
+  type: string;
+  id: string;
+}
 
 export default function MovieDetails() {
-  const { details, cast } = useLoaderData() as {
+  const { details, cast, recommendations } = useLoaderData() as {
     details: Details;
     cast: ActorTypes[];
+    recommendations: Details[];
   };
 
   const scrollToTop = () => {
@@ -61,6 +77,18 @@ export default function MovieDetails() {
 
   const percentageVote = Math.trunc(details.vote_average * 10);
 
+  const changeColorVote = (vote: number) => {
+    if (vote >= 70) return "green";
+    if (vote >= 50) return "orange";
+    return "red";
+  };
+
+  const videoList = details.videos.results;
+
+  const trailerVideo = videoList.find((video) => video.type === "Trailer");
+
+  const srcTrailerKey = trailerVideo ? trailerVideo.key : null;
+
   return (
     <section className="alldetails">
       <section
@@ -74,13 +102,34 @@ export default function MovieDetails() {
         <div className="left">
           <h1 className="namedetails">{details.original_title}</h1>
           <img
-            src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
+            src={
+              details.poster_path
+                ? `https://image.tmdb.org/t/p/w500${details.poster_path}`
+                : "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"
+            }
             alt=""
             className="poster"
           />
         </div>
         <div className="right">
-          <p className="rate">{percentageVote}%</p>
+          <div className="top">
+            <p className={`rate-${changeColorVote(percentageVote)}`}>
+              {percentageVote}%
+            </p>
+            {srcTrailerKey ? (
+              <Link
+                to={`https://www.youtube.com/watch?v=${srcTrailerKey}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="trailer-link"
+              >
+                <img src={playIcon} alt="play" />
+                Bande-annonce
+              </Link>
+            ) : (
+              ""
+            )}
+          </div>
           <div className="infos-movie">
             <p>
               {details.genres.map((genre, index) => (
@@ -93,14 +142,22 @@ export default function MovieDetails() {
             </p>
             <p className="runtime">{formatRunTime(details.runtime)}</p>
           </div>
-          <h2 className="tagline">"{details.tagline}"</h2>
-          <p className="synopsis">Synopsis: {details.overview}</p>
+          <h2 className="tagline">
+            {details.tagline ? `"${details.tagline}"` : ""}
+          </h2>
+          <p className="synopsis">
+            {details.overview
+              ? `Synopsis: ${details.overview}`
+              : "Il n'y a pas d' informations pour ce film"}
+          </p>
           <p className="daterelease">Date de sortie: {newFormatDate}</p>
           <p className="country">Pays: {details.origin_country}</p>
-          <p className="budget">Budget: ${formatBudget}</p>
+          <p className="budget">
+            Budget: {details.budget > 0 ? `$${formatBudget}` : "Non disponible"}
+          </p>
         </div>
       </section>
-      <h1 className="titlecast">Casting</h1>
+      <h2 className="titlecast">Casting</h2>
       <div className="cast2">
         {cast.slice(0, 7).map((actor) => (
           <Link
@@ -111,6 +168,18 @@ export default function MovieDetails() {
             <CastingCard cast={actor} />
           </Link>
         ))}
+      </div>
+      <h2 className="titlecast">Vidéos et Bandes-annonces</h2>
+      <div className="container">
+        <article className="all-cards">liste des bandes annonces</article>
+      </div>
+      <h2 className="titlecast">Ça pourrait vous plaire aussi ...</h2>
+      <div className="container">
+        <div className="all-cards">
+          {recommendations.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </div>
       </div>
     </section>
   );

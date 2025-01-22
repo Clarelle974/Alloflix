@@ -18,17 +18,17 @@ import Search from "./pages/Search";
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
-
 import {
   getArtists,
-  getCategories,
   getCombinedCredits,
   getCreditsMovie,
   getDetailsArtist,
   getDetailsMovie,
   getPopularMovies,
+  getRecommendations,
   getSearchMovie,
   getTheaterMovies,
+  getTopRatedMovies,
   getUpcomingMovies,
 } from "./services/requests";
 
@@ -39,6 +39,7 @@ import {
 
 // Create router configuration with routes
 // You can add more routes as you build out your app!
+
 const router = createBrowserRouter([
   {
     element: <App />,
@@ -53,15 +54,21 @@ const router = createBrowserRouter([
         }),
         errorElement: <Page404 />,
       },
+
       {
-        path: "/movies",
+        path: "/movies/:type",
         element: <Movies />,
-        loader: getCategories,
+        loader: async () => ({
+          toprated: await getTopRatedMovies(),
+          popular: await getPopularMovies(),
+          theater: await getTheaterMovies(),
+          upcoming: await getUpcomingMovies(),
+        }),
       },
       {
-        path: "/search/:movie",
+        path: "/search/:userSearch",
         element: <Search />,
-        loader: ({ params }) => getSearchMovie(String(params.movie)),
+        loader: ({ params }) => getSearchMovie(String(params.userSearch)),
       },
 
       {
@@ -76,6 +83,7 @@ const router = createBrowserRouter([
         loader: async ({ params }) => ({
           cast: await getCreditsMovie(Number(params.movie_id)),
           details: await getDetailsMovie(Number(params.movie_id)),
+          recommendations: await getRecommendations(Number(params.movie_id)),
         }),
       },
       {

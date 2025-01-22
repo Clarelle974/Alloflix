@@ -25,13 +25,6 @@ const getPopularMovies = () => {
     .catch((error) => console.error(error));
 };
 
-const getCategories = () => {
-  return axios
-    .get("https://api.themoviedb.org/3/movie/popular", config)
-    .then((response) => response.data.results)
-    .catch((error) => console.error(error));
-};
-
 const getArtists = () => {
   return axios
     .get("https://api.themoviedb.org/3/person/popular", config)
@@ -48,7 +41,10 @@ const getTheaterMovies = () => {
 
 const getDetailsMovie = (movie_id: number) => {
   return axios
-    .get(`https://api.themoviedb.org/3/movie/${movie_id}`, config)
+    .get(
+      `https://api.themoviedb.org/3/movie/${movie_id}?append_to_response=videos`,
+      config,
+    )
     .then((response) => response.data)
     .catch((error) => console.error(error));
 };
@@ -76,10 +72,10 @@ const getCombinedCredits = (person_id: number) => {
     .then((response) => response.data.cast);
 };
 
-const getSearchMovie = (movie: string) => {
+const getSearchMovie = (userSearch: string) => {
   return axios
     .get(
-      `https://api.themoviedb.org/3/search/movie?query=${movie}&include_adult=false&language=fr-FR&page=1`,
+      `https://api.themoviedb.org/3/search/multi?query=${userSearch}&include_adult=false&language=fr-FR&page=1`,
       config,
     )
     .then((response) => response.data.results)
@@ -93,15 +89,33 @@ const getUpcomingMovies = () => {
     .catch((error) => console.error(error));
 };
 
+const getTopRatedMovies = () => {
+  return axios
+    .get("https://api.themoviedb.org/3/movie/top_rated", config)
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
+const getRecommendations = (movie_id: number) => {
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${movie_id}/recommendations`,
+      config,
+    )
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
 export {
   getArtists,
-  getCategories,
   getPopularMovies,
   getDetailsMovie,
   getCreditsMovie,
   getDetailsArtist,
   getCombinedCredits,
+  getRecommendations,
   getTheaterMovies,
+  getTopRatedMovies,
   getSearchMovie,
   getUpcomingMovies,
 };

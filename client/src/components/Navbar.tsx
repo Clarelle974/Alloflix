@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 import { useNavigate } from "react-router-dom";
 import Logo from "../assets/images/Alloflix_logo.png";
+import searchIcon from "../assets/images/search-icon.png";
 
 export default function Navbar() {
   const [isMoviesDropdownVisible, setMoviesDropdownVisible] = useState(false);
@@ -60,21 +61,26 @@ export default function Navbar() {
             onMouseEnter={handleMoviesMouseEnter}
             onMouseLeave={handleMoviesMouseLeave}
           >
-            <Link to="/movies">Films</Link>
+            <Link to="/movies/top-rated">Films</Link>
             {isMoviesDropdownVisible && (
               <ul className="dropdown-menu">
                 <li>
-                  <Link to="/movies/populaires" className="link">
+                  <Link to="/movies/toprated" className="link">
+                    Les mieux notés
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/movies/popular" className="link">
                     Populaires
                   </Link>
                 </li>
                 <li>
-                  <Link to="/movies/dumoment" className="link">
+                  <Link to="/movies/now-playing" className="link">
                     Du moment
                   </Link>
                 </li>
                 <li>
-                  <Link to="/movies/avenir" className="link">
+                  <Link to="/movies/upcoming" className="link">
                     À venir
                   </Link>
                 </li>
@@ -112,7 +118,7 @@ export default function Navbar() {
           value={searchedMovie}
         />
         <button type="button" onClick={handleClickSearchIcon}>
-          <img src="src/assets/images/search-icon.png" alt="search" />
+          <img src={searchIcon} alt="search" />
         </button>
       </form>
     </nav>

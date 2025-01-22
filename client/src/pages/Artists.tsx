@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import ArtistCard from "../components/ArtistCard";
+import "../styles/artistcard.css";
 
 interface ArtistsTypes {
   id: number;
