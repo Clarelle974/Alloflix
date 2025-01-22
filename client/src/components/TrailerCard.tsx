@@ -34,6 +34,10 @@ export default function TrailerCard({ movie }: MovieTypes) {
       .catch((error) => console.error(error));
   }, [movie.id]);
 
+  if (!srcKey) {
+    return null;
+  }
+
   return (
     <div className="cards-display">
       <div className="trailer">
