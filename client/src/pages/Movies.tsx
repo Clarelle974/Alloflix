@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 
@@ -9,6 +10,7 @@ interface MovieTypes {
   poster_path: string;
   vote_average: number;
   release_date: string;
+  genre_ids: number[];
 }
 
 export default function Movies() {
@@ -18,9 +20,25 @@ export default function Movies() {
     popular: MovieTypes[];
     upcoming: MovieTypes[];
     theater: MovieTypes[];
+    toprated2: MovieTypes[];
+    toprated3: MovieTypes[];
+    toprated4: MovieTypes[];
   };
+
+  const [selectedGenre, setSelectedGenre] = useState("");
+
   let h2ListTitle = "Films les mieux notés";
-  let data = allData.toprated;
+  let data = [
+    ...allData.toprated,
+    ...allData.toprated2,
+    ...allData.toprated3,
+    ...allData.toprated4,
+  ];
+
+  if (type === "toprated") {
+    h2ListTitle = "Films les mieux notés";
+    data = [...allData.toprated, ...allData.toprated2, ...allData.toprated3];
+  }
 
   if (type === "popular") {
     h2ListTitle = "Films populaires";
@@ -35,11 +53,39 @@ export default function Movies() {
     data = allData.theater;
   }
 
+  const handleGenreChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedGenre(event.target.value);
+  };
+
+  const filteredData = selectedGenre
+    ? data.filter((movie) => movie.genre_ids.includes(Number(selectedGenre)))
+    : data;
+
   return (
     <>
       <h2 className="title">{h2ListTitle}</h2>
+      <div>
+        <select
+          required
+          aria-label="select"
+          value={selectedGenre}
+          onChange={handleGenreChange}
+        >
+          <option value="" disabled selected>
+            Selectionner un genre
+          </option>
+          <option value="">Tous</option>
+          <option value="28">Action</option>
+          <option value="12">Aventure</option>
+          <option value="35">Comedie</option>
+          <option value="10749">Romance</option>
+          <option value="878">Science-Fiction</option>
+          <option value="53">Thriller</option>
+          <option value="27">Horreur</option>
+        </select>
+      </div>
       <section className="section-movies">
-        {data.map((movie) => (
+        {filteredData.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </section>

@@ -18,6 +18,22 @@ const configPage2 = {
   },
 };
 
+const configPage3 = {
+  params: { language: "fr-FR", page: "3" },
+  headers: {
+    accept: "application/json",
+    Authorization: `Bearer ${key}`,
+  },
+};
+
+const configPage4 = {
+  params: { language: "fr-FR", page: "3" },
+  headers: {
+    accept: "application/json",
+    Authorization: `Bearer ${key}`,
+  },
+};
+
 const getPopularMovies = () => {
   return axios
     .get("https://api.themoviedb.org/3/discover/movie", config)
@@ -96,12 +112,34 @@ const getTopRatedMovies = () => {
     .catch((error) => console.error(error));
 };
 
+const getTopRatedMovies2 = () => {
+  return axios
+    .get("https://api.themoviedb.org/3/movie/top_rated", configPage2)
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
+const getTopRatedMovies3 = () => {
+  return axios
+    .get("https://api.themoviedb.org/3/movie/top_rated", configPage3)
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
+const getTopRatedMovies4 = () => {
+  return axios
+    .get("https://api.themoviedb.org/3/movie/top_rated", configPage4)
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
 const getRecommendations = (movie_id: number) => {
   return axios
     .get(
       `https://api.themoviedb.org/3/movie/${movie_id}/recommendations`,
       config,
     )
+
     .then((response) => response.data.results)
     .catch((error) => console.error(error));
 };
@@ -116,6 +154,9 @@ export {
   getRecommendations,
   getTheaterMovies,
   getTopRatedMovies,
+  getTopRatedMovies2,
+  getTopRatedMovies3,
+  getTopRatedMovies4,
   getSearchMovie,
   getUpcomingMovies,
 };
