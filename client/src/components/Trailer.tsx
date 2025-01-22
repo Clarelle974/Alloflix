@@ -18,6 +18,8 @@ export default function Trailer() {
 
   const [hoverTrailer, setHoverTrailer] = useState<MovieTypes | null>(null);
 
+  const defaultBackdropPath = popular[0]?.backdrop_path;
+
   return (
     <>
       <section
@@ -26,7 +28,9 @@ export default function Trailer() {
             ? `linear-gradient(rgba(20, 20, 20, 0.62), rgba(14, 14, 14, 0.7)),url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${
                 hoverTrailer.backdrop_path
               }')`
-            : "none",
+            : `linear-gradient(rgba(20, 20, 20, 0.62), rgba(14, 14, 14, 0.7)),url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${
+                defaultBackdropPath
+              }')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
