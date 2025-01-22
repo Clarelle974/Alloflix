@@ -43,6 +43,7 @@ export default function Trailer() {
           {popular.map((movie) => (
             <div
               key={movie.id}
+              className="card-wrapped"
               onMouseEnter={() => setHoverTrailer(movie)}
               onMouseLeave={() => setHoverTrailer(movie)}
             >
