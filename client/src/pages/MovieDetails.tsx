@@ -2,8 +2,10 @@ import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CastingCard from "../components/CastingCard";
 import "../styles/moviedetails.css";
+
 import playIcon from "../assets/images/play-icon-light.png";
 import MovieCard from "../components/MovieCard";
+import VideoCard from "../components/VideoCard";
 
 interface ActorTypes {
   id: number;
@@ -40,11 +42,14 @@ interface VideoResults {
 }
 
 export default function MovieDetails() {
-  const { details, cast, recommendations } = useLoaderData() as {
-    details: Details;
-    cast: ActorTypes[];
-    recommendations: Details[];
-  };
+  const { details, cast, recommendations, allFrVideos, allEnVideos } =
+    useLoaderData() as {
+      details: Details;
+      cast: ActorTypes[];
+      recommendations: Details[];
+      allFrVideos: VideoResults[];
+      allEnVideos: VideoResults[];
+    };
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -88,6 +93,13 @@ export default function MovieDetails() {
   const trailerVideo = videoList.find((video) => video.type === "Trailer");
 
   const srcTrailerKey = trailerVideo ? trailerVideo.key : null;
+
+  const youtubeFrVideos = allFrVideos.filter(
+    (video) => video.site === "YouTube",
+  );
+  const youtubeEnVideos = allEnVideos.filter(
+    (video) => video.site === "YouTube",
+  );
 
   return (
     <section className="alldetails">
@@ -171,7 +183,30 @@ export default function MovieDetails() {
       </div>
       <h2 className="titlecast">Vidéos et Bandes-annonces</h2>
       <div className="container">
-        <article className="all-cards">liste des bandes annonces</article>
+        <p>En français</p>
+        <div className="all-cards">
+          {youtubeFrVideos && youtubeFrVideos.length > 0 ? (
+            youtubeFrVideos.map((video) => (
+              <VideoCard key={video.id} video={video} />
+            ))
+          ) : (
+            <p>
+              <i>Pas de vidéo disponible</i>
+            </p>
+          )}
+        </div>
+        <p>En anglais</p>
+        <div className="all-cards">
+          {youtubeEnVideos && youtubeEnVideos.length > 0 ? (
+            youtubeEnVideos.map((video) => (
+              <VideoCard key={video.id} video={video} />
+            ))
+          ) : (
+            <p>
+              <i>Pas de vidéo disponible</i>
+            </p>
+          )}
+        </div>
       </div>
       <h2 className="titlecast">Ça pourrait vous plaire aussi ...</h2>
       <div className="container">
