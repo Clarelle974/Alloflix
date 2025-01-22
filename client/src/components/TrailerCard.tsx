@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/trailerCard.css";
+import playIcon from "../assets/images/play-icon-light.png";
 
 interface MovieTypes {
   movie: {
@@ -43,11 +44,7 @@ export default function TrailerCard({ movie }: MovieTypes) {
           className="trailer-link"
         >
           <img src={backdropSrc} alt={movie.title} className="trailer-img" />
-          <img
-            src="src/assets/images/play-icon-light.png"
-            alt="play"
-            className="icon"
-          />
+          <img src={playIcon} alt="play" className="icon" />
         </Link>
         <h2 className="trailer-name">{movie.title}</h2>
       </div>

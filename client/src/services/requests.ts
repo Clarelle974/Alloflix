@@ -41,7 +41,10 @@ const getTheaterMovies = () => {
 
 const getDetailsMovie = (movie_id: number) => {
   return axios
-    .get(`https://api.themoviedb.org/3/movie/${movie_id}`, config)
+    .get(
+      `https://api.themoviedb.org/3/movie/${movie_id}?append_to_response=videos`,
+      config,
+    )
     .then((response) => response.data)
     .catch((error) => console.error(error));
 };
@@ -93,6 +96,13 @@ const getTopRatedMovies = () => {
     .catch((error) => console.error(error));
 };
 
+// const getVideoDetails = (movie_id: number) => {
+//   return axios
+//     .get(`https://api.themoviedb.org/3/movie/${movie_id}/videos`, config)
+//     .then((response) => response.data.results)
+//     .catch((error) => console.error(error));
+// };
+
 export {
   getArtists,
   getPopularMovies,
@@ -104,4 +114,5 @@ export {
   getTopRatedMovies,
   getSearchMovie,
   getUpcomingMovies,
+  // getVideoDetails,
 };
