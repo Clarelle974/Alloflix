@@ -39,6 +39,11 @@ export default function ArtistDetails() {
     }
   };
 
+  const translation: Record<string, string> = {
+    Acting: "Acteur",
+    Directing: "Réalisateur",
+  };
+
   return (
     <>
       <section className="detailscards">
@@ -55,7 +60,7 @@ export default function ArtistDetails() {
           />
         </div>
         <div className="right">
-          <h2>{data.known_for_department}</h2>
+          <h2>{translation[data?.known_for_department || ""]}</h2>
           <h4 className="originactor">
             Lieu de naissance: {data.place_of_birth}
           </h4>

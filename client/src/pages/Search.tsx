@@ -43,9 +43,10 @@ export default function Search() {
           backgroundImg={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${backgroundImg}`}
         />
       ) : (
-        <Header backgroundImg="URL_DE_L_IMAGE_PAR_DÉFAUT" />
+        <Header backgroundImg="" />
       )}
       <p className="resultsfor">Résultats pour: {userSearch}</p>
+      <p className="resultsfor">Il y a {results.length} résultats</p>
       <div className="search-results">
         {results.length === 0 ? (
           <p>Aucun résultat trouvé.</p>
