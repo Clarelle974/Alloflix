@@ -9,3 +9,17 @@
   text-align: center;
   margin-top: 4rem;
 }
+
+select:required:invalid {
+  color: gray;
+}
+select {
+  font-size: 15px;
+  border: 2px solid lightgrey;
+  border-radius: 0.5rem;
+  color: black;
+  background-color: white;
+  max-height: 3rem;
+  margin-left: 11.5rem;
+  margin-top: 2rem;
+}
