@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import ArtistCard from "../components/ArtistCard";
+import { useParams } from "react-router-dom";
 
 interface ArtistsTypes {
   id: number;
@@ -15,13 +16,42 @@ interface ArtistsTypes {
 
 export default function Artists() {
   const data = useLoaderData() as ArtistsTypes[];
-  console.info(data);
+
+  const { type } = useParams();
+
+  const actingData = data.filter(
+    (artist) => artist.known_for_department === "Acting",
+  );
+  console.info(actingData);
+
+  const directingData = data.filter(
+    (artist) => artist.known_for_department === "Directing",
+  );
+
+  let title = "Artistes";
+
+  let askedData = data;
+
+  if (type === "acteurs") {
+    askedData = actingData;
+    title = "Acteurs";
+  }
+
+  if (type === "realisateurs") {
+    askedData = directingData;
+    title = "Réalisateurs";
+  }
+
+  if (type === "all") {
+    askedData = data;
+    title = "Artistes";
+  }
 
   return (
     <>
-      <h1>Page des artistes</h1>
+      <h1>{title}</h1>
       <section className="section-artists">
-        {data.map((artist) => (
+        {askedData.map((artist) => (
           <ArtistCard key={artist.id} artist={artist} />
         ))}
       </section>

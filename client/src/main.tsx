@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 /* ************************************************************************* */
 
 // Import the main app component
+
 import App from "./App";
 import ArtistDetails from "./pages/ArtistDetails";
 import Artists from "./pages/Artists";
@@ -62,11 +63,13 @@ const router = createBrowserRouter([
         element: <Search />,
         loader: ({ params }) => getSearchMovie(String(params.movie)),
       },
+
       {
-        path: "/artists",
+        path: "/artists/:type",
         element: <Artists />,
         loader: getArtists,
       },
+
       {
         path: "/moviedetails/:movie_id",
         element: <MovieDetails />,
