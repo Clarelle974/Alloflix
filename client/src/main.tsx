@@ -24,6 +24,7 @@ import {
   getDetailsArtist,
   getDetailsMovie,
   getPopularMovies,
+  getRecommendations,
   getSearchMovie,
   getTheaterMovies,
   getTopRatedMovies,
@@ -41,7 +42,6 @@ import {
 const router = createBrowserRouter([
   {
     element: <App />,
-    errorElement: <Page404 />,
     children: [
       {
         path: "/",
@@ -51,7 +51,9 @@ const router = createBrowserRouter([
           theater: await getTheaterMovies(),
           upcoming: await getUpcomingMovies(),
         }),
+        errorElement: <Page404 />,
       },
+
       {
         path: "/movies/:type",
         element: <Movies />,
@@ -68,7 +70,7 @@ const router = createBrowserRouter([
         loader: ({ params }) => getSearchMovie(String(params.userSearch)),
       },
       {
-        path: "/artists",
+        path: "/artists/",
         element: <Artists />,
         loader: getArtists,
       },
@@ -78,6 +80,7 @@ const router = createBrowserRouter([
         loader: async ({ params }) => ({
           cast: await getCreditsMovie(Number(params.movie_id)),
           details: await getDetailsMovie(Number(params.movie_id)),
+          recommendations: await getRecommendations(Number(params.movie_id)),
         }),
       },
       {

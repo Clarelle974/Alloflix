@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CastingCard from "../components/CastingCard";
 import "../styles/moviedetails.css";
 import playIcon from "../assets/images/play-icon-light.png";
+import MovieCard from "../components/MovieCard";
 
 interface ActorTypes {
   id: number;
@@ -12,6 +13,7 @@ interface ActorTypes {
   profile_path: string;
 }
 type Details = {
+  id: number;
   backdrop_path?: string;
   vote_average: number;
   original_title: string;
@@ -22,6 +24,7 @@ type Details = {
   origin_country: string;
   budget: number;
   tagline: string;
+  title: string;
   runtime: number;
   videos: Videos;
 };
@@ -37,11 +40,11 @@ interface VideoResults {
 }
 
 export default function MovieDetails() {
-  const { details, cast } = useLoaderData() as {
+  const { details, cast, recommendations } = useLoaderData() as {
     details: Details;
     cast: ActorTypes[];
+    recommendations: Details[];
   };
-  console.info(`Clarelle détails : ${JSON.stringify(details, null, 2)}`);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -166,9 +169,17 @@ export default function MovieDetails() {
           </Link>
         ))}
       </div>
-      <h2 className="popular-movie-title">Vidéos et Bandes-annonces</h2>
+      <h2 className="titlecast">Vidéos et Bandes-annonces</h2>
       <div className="container">
         <article className="all-cards">liste des bandes annonces</article>
+      </div>
+      <h2 className="titlecast">Ça pourrait vous plaire aussi ...</h2>
+      <div className="container">
+        <div className="all-cards">
+          {recommendations.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </div>
       </div>
     </section>
   );
