@@ -2,6 +2,8 @@ import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CastingCard from "../components/CastingCard";
 import "../styles/moviedetails.css";
+import playIcon from "../assets/images/play-icon-light.png";
+import MovieCard from "../components/MovieCard";
 
 interface ActorTypes {
   id: number;
@@ -11,6 +13,7 @@ interface ActorTypes {
   profile_path: string;
 }
 type Details = {
+  id: number;
   backdrop_path?: string;
   vote_average: number;
   original_title: string;
@@ -21,13 +24,26 @@ type Details = {
   origin_country: string;
   budget: number;
   tagline: string;
+  title: string;
   runtime: number;
+  videos: Videos;
 };
+interface Videos {
+  results: VideoResults[];
+}
+interface VideoResults {
+  name: string;
+  key: string;
+  site: string;
+  type: string;
+  id: string;
+}
 
 export default function MovieDetails() {
-  const { details, cast } = useLoaderData() as {
+  const { details, cast, recommendations } = useLoaderData() as {
     details: Details;
     cast: ActorTypes[];
+    recommendations: Details[];
   };
 
   const scrollToTop = () => {
@@ -67,6 +83,12 @@ export default function MovieDetails() {
     return "red";
   };
 
+  const videoList = details.videos.results;
+
+  const trailerVideo = videoList.find((video) => video.type === "Trailer");
+
+  const srcTrailerKey = trailerVideo ? trailerVideo.key : null;
+
   return (
     <section className="alldetails">
       <section
@@ -90,9 +112,24 @@ export default function MovieDetails() {
           />
         </div>
         <div className="right">
-          <p className={`rate-${changeColorVote(percentageVote)}`}>
-            {percentageVote}%
-          </p>
+          <div className="top">
+            <p className={`rate-${changeColorVote(percentageVote)}`}>
+              {percentageVote}%
+            </p>
+            {srcTrailerKey ? (
+              <Link
+                to={`https://www.youtube.com/watch?v=${srcTrailerKey}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="trailer-link"
+              >
+                <img src={playIcon} alt="play" />
+                Bande-annonce
+              </Link>
+            ) : (
+              ""
+            )}
+          </div>
           <div className="infos-movie">
             <p>
               {details.genres.map((genre, index) => (
@@ -120,7 +157,7 @@ export default function MovieDetails() {
           </p>
         </div>
       </section>
-      <h1 className="titlecast">Casting</h1>
+      <h2 className="titlecast">Casting</h2>
       <div className="cast2">
         {cast.slice(0, 7).map((actor) => (
           <Link
@@ -131,6 +168,18 @@ export default function MovieDetails() {
             <CastingCard cast={actor} />
           </Link>
         ))}
+      </div>
+      <h2 className="titlecast">Vidéos et Bandes-annonces</h2>
+      <div className="container">
+        <article className="all-cards">liste des bandes annonces</article>
+      </div>
+      <h2 className="titlecast">Ça pourrait vous plaire aussi ...</h2>
+      <div className="container">
+        <div className="all-cards">
+          {recommendations.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </div>
       </div>
     </section>
   );

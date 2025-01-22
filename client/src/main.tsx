@@ -24,6 +24,7 @@ import {
   getDetailsArtist,
   getDetailsMovie,
   getPopularMovies,
+  getRecommendations,
   getSearchMovie,
   getTheaterMovies,
   getTopRatedMovies,
@@ -76,7 +77,7 @@ const router = createBrowserRouter([
         loader: ({ params }) => getSearchMovie(String(params.userSearch)),
       },
       {
-        path: "/artists",
+        path: "/artists/",
         element: <Artists />,
         loader: getArtists,
       },
@@ -86,6 +87,7 @@ const router = createBrowserRouter([
         loader: async ({ params }) => ({
           cast: await getCreditsMovie(Number(params.movie_id)),
           details: await getDetailsMovie(Number(params.movie_id)),
+          recommendations: await getRecommendations(Number(params.movie_id)),
         }),
       },
       {
