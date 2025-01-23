@@ -90,12 +90,12 @@ export default function MovieDetails() {
 
   const trailerFrVideo = allFrVideos.find((video) => video.type === "Trailer");
   const trailerEnVideo = allEnVideos.find((video) => video.type === "Trailer");
-
-  const srcTrailerKey = trailerFrVideo
-    ? trailerFrVideo.key
-    : trailerEnVideo
-      ? trailerEnVideo.key
-      : null;
+  let srcTrailerKey = null;
+  if (trailerFrVideo) {
+    srcTrailerKey = trailerFrVideo.key;
+  } else if (trailerEnVideo) {
+    srcTrailerKey = trailerEnVideo.key;
+  }
 
   const youtubeFrVideos = allFrVideos.filter(
     (video) => video.site === "YouTube",
