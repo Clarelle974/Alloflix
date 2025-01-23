@@ -88,11 +88,14 @@ export default function MovieDetails() {
     return "red";
   };
 
-  const videoList = details.videos.results;
-
-  const trailerVideo = videoList.find((video) => video.type === "Trailer");
-
-  const srcTrailerKey = trailerVideo ? trailerVideo.key : null;
+  const trailerFrVideo = allFrVideos.find((video) => video.type === "Trailer");
+  const trailerEnVideo = allEnVideos.find((video) => video.type === "Trailer");
+  let srcTrailerKey = null;
+  if (trailerFrVideo) {
+    srcTrailerKey = trailerFrVideo.key;
+  } else if (trailerEnVideo) {
+    srcTrailerKey = trailerEnVideo.key;
+  }
 
   const youtubeFrVideos = allFrVideos.filter(
     (video) => video.site === "YouTube",

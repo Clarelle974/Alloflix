@@ -64,10 +64,7 @@ const getTheaterMovies = () => {
 
 const getDetailsMovie = (movie_id: number) => {
   return axios
-    .get(
-      `https://api.themoviedb.org/3/movie/${movie_id}?append_to_response=videos`,
-      config,
-    )
+    .get(`https://api.themoviedb.org/3/movie/${movie_id}`, config)
     .then((response) => response.data)
     .catch((error) => console.error(error));
 };
