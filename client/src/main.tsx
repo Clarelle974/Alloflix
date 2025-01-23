@@ -49,6 +49,7 @@ const router = createBrowserRouter([
   {
     element: <App />,
     errorElement: <Page404 />,
+    loader: getPopularMovies,
     children: [
       {
         path: "/",
