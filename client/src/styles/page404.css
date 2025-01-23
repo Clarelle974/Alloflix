@@ -24,6 +24,7 @@
 
 .moon-image {
   position: absolute;
+  animation: breathing 10s ease-in-out infinite;
 }
 
 .h2-404 {
@@ -72,4 +73,16 @@
 .button-404:hover {
   color: var(--primary-color);
   box-shadow: inset 250px 0 0 0 var(--bgcolor);
+}
+
+@keyframes breathing {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

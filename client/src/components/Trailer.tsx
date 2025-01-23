@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import TrailerCard from "./TrailerCard";
 
@@ -18,38 +18,40 @@ export default function Trailer() {
 
   const [hoverTrailer, setHoverTrailer] = useState<MovieTypes | null>(null);
 
-  const defaultBackdropPath = popular[0]?.backdrop_path;
+  useEffect(() => {
+    if (popular.length > 0) {
+      setHoverTrailer(popular[0]);
+    }
+  }, [popular]);
 
   return (
-    <>
-      <section
-        style={{
-          backgroundImage: hoverTrailer?.backdrop_path
-            ? `linear-gradient(rgba(20, 20, 20, 0.62), rgba(14, 14, 14, 0.7)),url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${
-                hoverTrailer.backdrop_path
-              }')`
-            : `linear-gradient(rgba(20, 20, 20, 0.62), rgba(14, 14, 14, 0.7)),url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${
-                defaultBackdropPath
-              }')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <h2 className="popular-movie-title">Bandes-annonces</h2>
-        <div className="container">
-          <article className="all-cards">
-            {popular.map((movie) => (
-              <div
-                key={movie.id}
-                onMouseEnter={() => setHoverTrailer(movie)}
-                onMouseLeave={() => setHoverTrailer(null)}
-              >
-                <TrailerCard key={movie.id} movie={movie} />
-              </div>
-            ))}
-          </article>
-        </div>
-      </section>
-    </>
+    <section
+      className="trailer-container"
+      style={{
+        backgroundImage: hoverTrailer?.backdrop_path
+          ? `linear-gradient(rgba(20, 20, 20, 0.62), rgba(14, 14, 14, 0.7)),url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${
+              hoverTrailer.backdrop_path
+            }')`
+          : "none",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <h2 className="popular-movie-title">Bandes-annonces</h2>
+      <div className="container">
+        <article className="all-cards">
+          {popular.map((movie) => (
+            <div
+              key={movie.id}
+              className="card-wrapped"
+              onMouseEnter={() => setHoverTrailer(movie)}
+              onMouseLeave={() => setHoverTrailer(movie)}
+            >
+              <TrailerCard key={movie.id} movie={movie} />
+            </div>
+          ))}
+        </article>
+      </div>
+    </section>
   );
 }
