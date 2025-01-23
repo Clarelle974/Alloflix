@@ -40,6 +40,11 @@ export default function TrailerCard({ movie }: MovieTypes) {
 
   const toggleModal = () => {
     setModal(!modal);
+    if (!modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
   };
 
   return (
