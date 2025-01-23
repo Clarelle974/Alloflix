@@ -88,11 +88,16 @@ export default function MovieDetails() {
     return "red";
   };
 
-  const videoList = details.videos.results;
+  // const videoList = details.videos.results;
 
-  const trailerVideo = videoList.find((video) => video.type === "Trailer");
+  const trailerFrVideo = allFrVideos.find((video) => video.type === "Trailer");
+  const trailerEnVideo = allEnVideos.find((video) => video.type === "Trailer");
 
-  const srcTrailerKey = trailerVideo ? trailerVideo.key : null;
+  const srcTrailerKey = trailerFrVideo
+    ? trailerFrVideo.key
+    : trailerEnVideo
+      ? trailerEnVideo.key
+      : null;
 
   const youtubeFrVideos = allFrVideos.filter(
     (video) => video.site === "YouTube",
