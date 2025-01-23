@@ -5,6 +5,7 @@ interface ActorTypes {
     id: string;
     character: string;
     poster_path: string;
+    original_title: string;
   };
 }
 
@@ -18,7 +19,7 @@ export default function Filmography({ actor }: ActorTypes) {
 
   return (
     <Link to={`/moviedetails/${actor.id}`} key={actor.id} onClick={scrollToTop}>
-      <div className="cardcast">
+      <div className="movieCard">
         <img
           src={
             actor.poster_path
@@ -26,9 +27,12 @@ export default function Filmography({ actor }: ActorTypes) {
               : "https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg"
           }
           alt="acteur"
-          className="profilepic"
+          className="img-movie-card"
         />
-        <h3 className="castname">{actor.character}</h3>
+        <div className="topgap">
+          <h2 className="movie-title-card">{actor.original_title}</h2>
+          <h2 className="movie-year-card">{actor.character}</h2>
+        </div>
       </div>
     </Link>
   );

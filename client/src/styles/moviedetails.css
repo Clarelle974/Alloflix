@@ -10,7 +10,7 @@
 
 .right {
   padding: 4rem;
-  margin-top: 4rem;
+  max-width: 65%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -45,7 +45,7 @@
   border: solid 1px white;
   width: fit-content;
   padding: 0.5rem;
-  margin-left: 2rem;
+
   border-radius: 10px;
 }
 .profilepic {
@@ -66,8 +66,15 @@
 
 .cast2 {
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 6rem;
+  justify-content: center;
+}
+
+.cast3 {
+  display: flex;
+
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
 }
 
 .titlecast {
@@ -90,6 +97,10 @@
 .left {
   margin-left: 4rem;
   margin-top: 2rem;
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
 }
 
 .filmo {
@@ -100,9 +111,7 @@
 }
 
 .filmotitle {
-  margin-left: 6rem;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .castname {
@@ -125,4 +134,30 @@
 
 a {
   text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darkgray;
+}
+summary {
+  text-decoration: underline;
+}
+.topgap {
+  margin-top: 1rem;
+}
+.originactor {
+  padding-top: 0.5rem;
+}
+.birthday {
+  padding-top: 0.5rem;
 }
