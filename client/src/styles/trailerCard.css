@@ -78,10 +78,9 @@
 }
 
 .modal-content {
-  background: white;
-  padding: 20px;
+  background: var(--bgcolor);
+  padding: 1rem;
   border-radius: 10px;
-  max-width: 800px;
   width: 90%;
   position: relative;
 }
@@ -92,9 +91,9 @@
   right: 10px;
   background: transparent;
   border: none;
-  font-size: 24px;
+  font-size: 1.5rem;
   cursor: pointer;
-  color: #333;
+  color: white;
 }
 
 .trailer-link {
