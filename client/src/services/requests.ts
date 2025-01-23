@@ -33,6 +33,13 @@ const configPage4 = {
     Authorization: `Bearer ${key}`,
   },
 };
+const configLangEn = {
+  params: { language: "En-US", page: "1" },
+  headers: {
+    accept: "application/json",
+    Authorization: `Bearer ${key}`,
+  },
+};
 
 const getPopularMovies = () => {
   return axios
@@ -144,7 +151,24 @@ const getRecommendations = (movie_id: number) => {
     .catch((error) => console.error(error));
 };
 
+const getAllFrVideos = (movie_id: number) => {
+  return axios
+    .get(`https://api.themoviedb.org/3/movie/${movie_id}/videos`, config)
+
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+const getAllEnVideos = (movie_id: number) => {
+  return axios
+    .get(`https://api.themoviedb.org/3/movie/${movie_id}/videos`, configLangEn)
+
+    .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
 export {
+  getAllEnVideos,
+  getAllFrVideos,
   getArtists,
   getPopularMovies,
   getDetailsMovie,

@@ -19,6 +19,8 @@ import Search from "./pages/Search";
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
 import {
+  getAllEnVideos,
+  getAllFrVideos,
   getArtists,
   getCombinedCredits,
   getCreditsMovie,
@@ -91,6 +93,8 @@ const router = createBrowserRouter([
           cast: await getCreditsMovie(Number(params.movie_id)),
           details: await getDetailsMovie(Number(params.movie_id)),
           recommendations: await getRecommendations(Number(params.movie_id)),
+          allFrVideos: await getAllFrVideos(Number(params.movie_id)),
+          allEnVideos: await getAllEnVideos(Number(params.movie_id)),
         }),
       },
       {
