@@ -88,8 +88,6 @@ export default function MovieDetails() {
     return "red";
   };
 
-  // const videoList = details.videos.results;
-
   const trailerFrVideo = allFrVideos.find((video) => video.type === "Trailer");
   const trailerEnVideo = allEnVideos.find((video) => video.type === "Trailer");
 
