@@ -27,7 +27,7 @@ const configPage3 = {
 };
 
 const configPage4 = {
-  params: { language: "fr-FR", page: "3" },
+  params: { language: "fr-FR", page: "4" },
   headers: {
     accept: "application/json",
     Authorization: `Bearer ${key}`,

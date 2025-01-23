@@ -15,12 +15,16 @@ interface ActorTypes {
   id: string;
   character: string;
   poster_path: string;
+  Acting: string;
+  Directing: string;
+  original_title: string;
 }
 export default function ArtistDetails() {
   const { data, credits } = useLoaderData() as {
     data: Datatypes;
     credits: ActorTypes[];
   };
+  console.info(data);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -39,16 +43,19 @@ export default function ArtistDetails() {
     }
   };
 
-  const translation: Record<string, string> = {
-    Acting: "Acteur",
-    Directing: "Réalisateur",
+  const translate = (department: string): string => {
+    const translation: { [key: string]: string } = {
+      Acting: "Acteur",
+      Writing: "Scénariste",
+      Directing: "Réalisateur",
+    };
+    return translation[department] || department;
   };
 
   return (
     <>
       <section className="detailscards">
         <div className="left">
-          <h1 className="namedetails">{data.name}</h1>
           <img
             src={
               data.profile_path
@@ -58,29 +65,40 @@ export default function ArtistDetails() {
             alt="acteur"
             className="poster"
           />
-        </div>
-        <div className="right">
-          <h2>{translation[data?.known_for_department || ""]}</h2>
-          <h4 className="originactor">
-            Lieu de naissance: {data.place_of_birth}
-          </h4>
+          <h2>{translate(data.known_for_department)}</h2>
+          <h5 className="originactor">
+            Lieu de naissance: <br />
+            {data.place_of_birth}
+          </h5>
           <p className="birthday">
-            Date de naissance: {formatDate(data.birthday)}
+            Date de naissance: <br />
+            {formatDate(data.birthday)}
           </p>
           <p>{deathDate()}</p>
-          <p className="biography">
-            {data.biography
-              ? data.biography
-              : "Nous n' avons pas d' autres informations sur cet artiste"}
-          </p>
+        </div>
+        <div className="right">
+          <h1 className="namedetails">{data.name}</h1>
+
+          <section className="allbio">
+            <h3 className="bio">Biographie</h3>
+            <p>{data.biography.slice(0, 226)}...</p>
+            <details>
+              <summary>Lire la suite</summary>
+              <p className="biography">
+                {data.biography
+                  ? data.biography.substring(226)
+                  : "Nous n' avons pas d' autres informations sur cet artiste"}
+              </p>
+            </details>
+          </section>
+          <h2 className="filmotitle">Filmographie</h2>
+          <div className="cast3">
+            {credits.slice(0, 20).map((actor) => (
+              <Filmography key={actor.id} actor={actor} />
+            ))}
+          </div>
         </div>
       </section>
-      <h2 className="filmotitle">Filmographie</h2>
-      <div className="cast2">
-        {credits.slice(0, 7).map((actor) => (
-          <Filmography key={actor.id} actor={actor} />
-        ))}
-      </div>
     </>
   );
 }
