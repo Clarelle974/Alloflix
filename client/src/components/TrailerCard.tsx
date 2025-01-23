@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../styles/trailerCard.css";
 import playIcon from "../assets/images/play-icon-light.png";
 
@@ -16,7 +16,7 @@ interface MovieTypes {
 export default function TrailerCard({ movie }: MovieTypes) {
   const backdropSrc = `https://image.tmdb.org/t/p/w300/${movie.backdrop_path}`;
   const [srcKey, setSrcKey] = useState();
-  const [modal, setModal] = useState(false);
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
 
   useEffect(() => {
     const key = import.meta.env.VITE_API_KEY;
@@ -38,13 +38,14 @@ export default function TrailerCard({ movie }: MovieTypes) {
     return null;
   }
 
-  const toggleModal = () => {
-    setModal(!modal);
-    if (!modal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+  const openModal = () => {
+    dialogRef.current?.showModal();
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    dialogRef.current?.close();
+    document.body.style.overflow = "";
   };
 
   return (
@@ -52,11 +53,11 @@ export default function TrailerCard({ movie }: MovieTypes) {
       <div className="trailer">
         <div
           className="trailer-link"
-          onClick={toggleModal}
+          onClick={openModal}
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
-              toggleModal();
+              openModal();
             }
           }}
         >
@@ -66,46 +67,41 @@ export default function TrailerCard({ movie }: MovieTypes) {
         <h2 className="trailer-name">{movie.title}</h2>
       </div>
 
-      {modal && (
+      <dialog
+        ref={dialogRef}
+        className="modal"
+        onClick={closeModal}
+        onKeyDown={(e) => {
+          if (e.key === "Escape") {
+            closeModal();
+          }
+        }}
+      >
         <div
-          className="modal-overlay"
-          onClick={toggleModal}
+          className="modal-content"
+          onClick={(e) => e.stopPropagation()}
+          tabIndex={-1}
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
-              toggleModal();
+              e.stopPropagation();
             }
           }}
         >
-          <div
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                toggleModal();
-              }
-            }}
-          >
-            <button
-              className="close-button"
-              onClick={toggleModal}
-              type="button"
-            >
-              &times;
-            </button>
-            <iframe
-              width="100%"
-              height="930"
-              src={`https://www.youtube.com/embed/${srcKey}`}
-              title="YouTube video player"
-              style={{ border: "none" }}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
+          <button className="close-button" onClick={closeModal} type="button">
+            &times;
+          </button>
+          <iframe
+            width="100%"
+            height="930"
+            src={`https://www.youtube.com/embed/${srcKey}`}
+            title="YouTube video player"
+            style={{ border: "none" }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
-      )}
+      </dialog>
     </div>
   );
 }
