@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/movieCard.css";
 import "../styles/popularmovie.css";
@@ -14,21 +15,20 @@ interface VideoTypes {
 }
 
 export default function VideoCard({ video }: VideoTypes) {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => {
+    setModal(!modal);
+    if (!modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
   };
 
   return (
     <div className="cards-display">
       <div className="movieCard">
-        <Link
-          to={`https://www.youtube.com/watch?v=${video.key}`}
-          className="link-movie"
-          onClick={scrollToTop}
-        >
+        <Link to={"#"} className="link-movie" onClick={toggleModal}>
           <img
             src={`https://img.youtube.com/vi/${video.key}/0.jpg`}
             alt={video.name}
@@ -42,6 +42,47 @@ export default function VideoCard({ video }: VideoTypes) {
           <p>Type : {video.type}</p>
         </div>
       </div>
+
+      {modal && (
+        <div
+          className="modal-overlay"
+          onClick={toggleModal}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              toggleModal();
+            }
+          }}
+        >
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                toggleModal();
+              }
+            }}
+          >
+            <button
+              className="close-button"
+              onClick={toggleModal}
+              type="button"
+            >
+              &times;
+            </button>
+            <iframe
+              width="100%"
+              height="930"
+              src={`https://www.youtube.com/embed/${video.key}`}
+              title="YouTube video player"
+              style={{ border: "none" }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
