@@ -33,11 +33,20 @@ export default function Search() {
     return hasImage;
   });
   console.info(results);
-  const backgroundImg = results[0].backdrop_path;
+  const backgroundImg = results.find(
+    (item) => item.backdrop_path,
+  )?.backdrop_path;
   return (
     <>
-      <Header backgroundImg={backgroundImg} />
+      {backgroundImg ? (
+        <Header
+          backgroundImg={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${backgroundImg}`}
+        />
+      ) : (
+        <Header backgroundImg="" />
+      )}
       <p className="resultsfor">Résultats pour: {userSearch}</p>
+      <p className="resultsfor">Il y a {results.length} résultats</p>
       <div className="search-results">
         {results.length === 0 ? (
           <p>Aucun résultat trouvé.</p>

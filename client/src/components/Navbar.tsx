@@ -92,7 +92,7 @@ export default function Navbar() {
             onMouseEnter={handleArtistsMouseEnter}
             onMouseLeave={handleArtistsMouseLeave}
           >
-            <Link to="/artists">Artistes</Link>
+            <Link to="/artists/all">Artistes</Link>
             {isArtistsDropdownVisible && (
               <ul className="artists-dropdown-menu">
                 <li>
