@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CastingCard from "../components/CastingCard";
@@ -101,6 +102,16 @@ export default function MovieDetails() {
     (video) => video.site === "YouTube",
   );
 
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => {
+    setModal(!modal);
+    if (!modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  };
+
   return (
     <section className="alldetails">
       <section
@@ -129,12 +140,7 @@ export default function MovieDetails() {
               {percentageVote}%
             </p>
             {srcTrailerKey ? (
-              <Link
-                to={`https://www.youtube.com/watch?v=${srcTrailerKey}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="trailer-link"
-              >
+              <Link to={"#"} onClick={toggleModal} className="trailer-link">
                 <img src={playIcon} alt="play" />
                 Bande-annonce
               </Link>
@@ -216,6 +222,47 @@ export default function MovieDetails() {
           ))}
         </div>
       </div>
+
+      {modal && (
+        <div
+          className="modal-overlay"
+          onClick={toggleModal}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              toggleModal();
+            }
+          }}
+        >
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                toggleModal();
+              }
+            }}
+          >
+            <button
+              className="close-button"
+              onClick={toggleModal}
+              type="button"
+            >
+              &times;
+            </button>
+            <iframe
+              width="100%"
+              height="930"
+              src={`https://www.youtube.com/embed/${srcTrailerKey}`}
+              title="YouTube video player"
+              style={{ border: "none" }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
