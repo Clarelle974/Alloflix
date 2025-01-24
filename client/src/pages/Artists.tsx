@@ -50,7 +50,7 @@ export default function Artists() {
 
   return (
     <>
-      <h1>{title}</h1>
+      <h2 className="artists-title">{title}</h2>
       <section className="section-artists">
         {askedData.map((artist) => (
           <ArtistCard key={artist.id} artist={artist} />

@@ -1,24 +1,20 @@
-/* Style global de la nav */
 .navbar {
   background: var(--bgcolor);
   display: flex;
-  justify-content: space-around; /* Espacement entre le logo/liens et la barre de recherche */
+  justify-content: space-around;
   align-items: center;
 }
 
-/* Conteneur du logo */
 .logo {
   display: flex;
   align-items: center;
   padding: 1rem 0 1rem 0;
 }
 
-/* Taille et espacement du logo */
 .logo > img {
   height: 4rem;
 }
 
-/* Liste des liens */
 .link-nav > ul {
   display: flex;
   list-style: none;
@@ -26,14 +22,12 @@
   gap: 8rem;
 }
 
-/* Style des liens */
 .link-nav > ul > li > a {
   text-decoration: none;
   list-style: none;
   font-size: 16px;
 }
 
-/* Conteneur de la barre de recherche */
 .searchnav {
   display: flex;
 }
