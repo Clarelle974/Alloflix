@@ -4,15 +4,6 @@ import MovieCard from "../components/MovieCard";
 
 import "../styles/movies.css";
 
-interface MovieTypes {
-  id: number;
-  title: string;
-  poster_path: string;
-  vote_average: number;
-  release_date: string;
-  genre_ids: number[];
-}
-
 export default function Movies() {
   const { type } = useParams();
   const allData = useLoaderData() as {

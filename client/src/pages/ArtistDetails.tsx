@@ -1,28 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import Filmography from "../components/Filmography";
 
-interface Datatypes {
-  name: string;
-  profile_path: string;
-  known_for_department: string;
-  place_of_birth: string;
-  birthday: string;
-  biography: string;
-  deathday: string;
-}
-
-interface ActorTypes {
-  id: string;
-  character: string;
-  poster_path: string;
-  Acting: string;
-  Directing: string;
-  original_title: string;
-}
 export default function ArtistDetails() {
   const { data, credits } = useLoaderData() as {
-    data: Datatypes;
-    credits: ActorTypes[];
+    data: ArtistTypes;
+    credits: ArtistTypes[];
   };
 
   const formatDate = (dateString: string) => {
@@ -93,7 +75,7 @@ export default function ArtistDetails() {
           <h2 className="filmotitle">Filmographie</h2>
           <div className="cast3">
             {credits.slice(0, 20).map((actor) => (
-              <Filmography key={actor.id} actor={actor} />
+              <Filmography key={actor.id} artist={actor} />
             ))}
           </div>
         </div>

@@ -2,11 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/header.css";
 
-interface HeaderProps {
-  backgroundImg: string;
-}
-
-export default function Header({ backgroundImg }: HeaderProps) {
+export default function Header({ backdrop_path }: Background) {
   const [searchedMovie, setSearchedMovie] = useState("");
   const navigate = useNavigate();
   const handleChangeSearchBar = (
@@ -22,7 +18,7 @@ export default function Header({ backgroundImg }: HeaderProps) {
   return (
     <header
       style={{
-        backgroundImage: `linear-gradient(rgba(11, 11, 11, 0.7), rgba(11, 11, 11, 0.7)), url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${backgroundImg}')`,
+        backgroundImage: `linear-gradient(rgba(11, 11, 11, 0.7), rgba(11, 11, 11, 0.7)), url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${backdrop_path}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

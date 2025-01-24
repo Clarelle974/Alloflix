@@ -1,16 +1,12 @@
 import { Link } from "react-router-dom";
 import "../styles/joinus.css";
 
-interface Background {
-  backdropPath: string;
-}
-
-export default function JoinUs({ backdropPath }: Background) {
+export default function JoinUs({ backdrop_path }: Background) {
   return (
     <section
       className="joinus-container"
       style={{
-        backgroundImage: `linear-gradient(rgba(11, 11, 11, 0.7), rgba(11, 11, 11, 0.7)), url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${backdropPath}')`,
+        backgroundImage: `linear-gradient(rgba(11, 11, 11, 0.7), rgba(11, 11, 11, 0.7)), url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${backdrop_path}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

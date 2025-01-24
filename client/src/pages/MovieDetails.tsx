@@ -8,47 +8,13 @@ import playIcon from "../assets/images/play-icon-light.png";
 import MovieCard from "../components/MovieCard";
 import VideoCard from "../components/VideoCard";
 
-interface ActorTypes {
-  id: number;
-  character: string;
-  poster_path: string;
-  name: string;
-  profile_path: string;
-}
-type Details = {
-  id: number;
-  backdrop_path?: string;
-  vote_average: number;
-  original_title: string;
-  poster_path: string;
-  genres: { id: number; name: string }[];
-  overview: string;
-  release_date: string;
-  origin_country: string;
-  budget: number;
-  tagline: string;
-  title: string;
-  runtime: number;
-  videos: Videos;
-};
-interface Videos {
-  results: VideoResults[];
-}
-interface VideoResults {
-  name: string;
-  key: string;
-  site: string;
-  type: string;
-  id: string;
-}
-
 export default function MovieDetails() {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const { details, cast, recommendations, allFrVideos, allEnVideos } =
     useLoaderData() as {
-      details: Details;
-      cast: ActorTypes[];
-      recommendations: Details[];
+      details: MovieTypes;
+      cast: ArtistTypes[];
+      recommendations: MovieTypes[];
       allFrVideos: VideoResults[];
       allEnVideos: VideoResults[];
     };
@@ -187,7 +153,7 @@ export default function MovieDetails() {
             key={actor.id}
             onClick={scrollToTop}
           >
-            <CastingCard cast={actor} />
+            <CastingCard artist={actor} />
           </Link>
         ))}
       </div>

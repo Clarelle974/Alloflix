@@ -1,18 +1,13 @@
 import { useLoaderData } from "react-router-dom";
 import Header from "../components/Header";
-// import JoinUs from "../components/JoinUs";
 import PopularMovie from "../components/PopularMovie";
 import TheaterMovie from "../components/TheaterMovie";
 import Trailer from "../components/Trailer";
 import UpcomingMovies from "../components/UpcomingMovies";
 
-interface Homepage {
-  backdrop_path: string;
-}
-
 export default function Homepage() {
   const { popular } = useLoaderData() as {
-    popular: Homepage[];
+    popular: Background[];
   };
 
   const backgroundImg = popular[1].backdrop_path;
@@ -21,12 +16,11 @@ export default function Homepage() {
 
   return (
     <>
-      <Header backgroundImg={backgroundImg} />
+      <Header backdrop_path={backgroundImg} />
       <PopularMovie />
       <Trailer />
       <TheaterMovie />
       <UpcomingMovies />
-      {/* <JoinUs backgroundImgJoinUs={backgroundImgJoinUs} /> */}
     </>
   );
 }

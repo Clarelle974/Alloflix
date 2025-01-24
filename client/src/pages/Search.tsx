@@ -5,19 +5,6 @@ import Header from "../components/Header";
 import MovieCard from "../components/MovieCard";
 import "../styles/search.css";
 
-interface ResultsTypes {
-  id: number;
-  title: string;
-  name: string;
-  profile_path: string;
-  character: string;
-  media_type: string;
-  backdrop_path: string;
-  poster_path: string;
-  vote_average: number;
-  release_date: string;
-}
-
 export default function Search() {
   const { userSearch } = useParams();
   const allResults = useLoaderData() as ResultsTypes[];
@@ -40,10 +27,10 @@ export default function Search() {
     <>
       {backgroundImg ? (
         <Header
-          backgroundImg={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${backgroundImg}`}
+          backdrop_path={`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${backgroundImg}`}
         />
       ) : (
-        <Header backgroundImg="" />
+        <Header backdrop_path="" />
       )}
       <p className="resultsfor">Résultats pour: {userSearch}</p>
       <p className="resultsfor">Il y a {results.length} résultats</p>
@@ -58,7 +45,7 @@ export default function Search() {
               )}
               {searchedItem.media_type === "person" && (
                 <Link to={`/artistdetails/${searchedItem.id}`}>
-                  <CastingCard cast={searchedItem} />
+                  <CastingCard artist={searchedItem} />
                 </Link>
               )}
             </div>

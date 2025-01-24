@@ -1,17 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import MovieCard from "./MovieCard";
 
-interface TheaterMoviesTypes {
-  id: number;
-  title: string;
-  poster_path: string;
-  vote_average: number;
-  release_date: string;
-}
-
 export default function TheaterMovie() {
   const { theater } = useLoaderData() as {
-    theater: TheaterMoviesTypes[];
+    theater: MovieTypes[];
   };
 
   return (
