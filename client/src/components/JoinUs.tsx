@@ -30,6 +30,7 @@ export default function JoinUs({ backdropPath }: Background) {
         <div className="list-text">
           <ul>
             <li className="li-joinus">Profiter de Alloflix sans publicité</li>
+            <li className="li-joinus">Découvrez vos séries favorites</li>
             <li className="li-joinus">
               Maintenez une liste de suivie personnelle
             </li>

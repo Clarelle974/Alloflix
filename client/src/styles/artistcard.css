@@ -1,11 +1,18 @@
 .section-artists {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin: 0 auto;
   gap: 3rem;
   width: 70%;
-  margin-top: 9rem;
+  margin-bottom: 2rem;
 }
+
+.artists-title {
+  margin: 4rem 0 2rem 0;
+  text-align: center;
+}
+
 .img-artist-card {
   border-radius: 16px;
   height: 15rem;
