@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import "../styles/joinus.css";
 
-interface JoinUsTypes {
-  backgroundImgJoinUs: string;
+interface Background {
+  backdropPath: string;
 }
 
-export default function JoinUs({ backgroundImgJoinUs }: JoinUsTypes) {
+export default function JoinUs({ backdropPath }: Background) {
   return (
     <section
       className="joinus-container"
       style={{
-        backgroundImage: `linear-gradient(rgba(11, 11, 11, 0.7), rgba(11, 11, 11, 0.7)), url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${backgroundImgJoinUs}')`,
+        backgroundImage: `linear-gradient(rgba(11, 11, 11, 0.7), rgba(11, 11, 11, 0.7)), url('https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${backdropPath}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
