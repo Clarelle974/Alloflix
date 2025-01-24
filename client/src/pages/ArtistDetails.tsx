@@ -24,7 +24,6 @@ export default function ArtistDetails() {
     data: Datatypes;
     credits: ActorTypes[];
   };
-  console.info(data);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);

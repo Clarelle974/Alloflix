@@ -23,7 +23,6 @@ export default function Artists() {
   const actingData = data.filter(
     (artist) => artist.known_for_department === "Acting",
   );
-  console.info(actingData);
 
   const directingData = data.filter(
     (artist) => artist.known_for_department === "Directing",

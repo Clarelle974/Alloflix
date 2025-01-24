@@ -23,6 +23,7 @@ export default function CastingCard({ cast }: Cardtypes) {
         className="profilepic"
       />
       <h3 className="castname">{cast.name}</h3>
+      <h2 className="movie-year-card">{cast.character}</h2>
     </div>
   );
 }

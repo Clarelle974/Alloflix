@@ -32,7 +32,7 @@ export default function Search() {
 
     return hasImage;
   });
-  console.info(results);
+
   const backgroundImg = results.find(
     (item) => item.backdrop_path,
   )?.backdrop_path;
