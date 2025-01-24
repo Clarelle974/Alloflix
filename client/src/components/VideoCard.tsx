@@ -4,16 +4,6 @@ import "../styles/movieCard.css";
 import "../styles/popularmovie.css";
 import "../styles/videoCard.css";
 
-interface VideoTypes {
-  video: {
-    name: string;
-    key: string;
-    site: string;
-    type: string;
-    id: string;
-  };
-}
-
 export default function VideoCard({ video }: VideoTypes) {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const openModal = () => {

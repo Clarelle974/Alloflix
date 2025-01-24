@@ -2,17 +2,9 @@ import { useLoaderData } from "react-router-dom";
 import MovieCard from "./MovieCard";
 import "../styles/popularmovie.css";
 
-interface PopularMoviesTypes {
-  id: number;
-  title: string;
-  poster_path: string;
-  vote_average: number;
-  release_date: string;
-}
-
 export default function PopularMovie() {
   const { popular } = useLoaderData() as {
-    popular: PopularMoviesTypes[];
+    popular: MovieTypes[];
   };
 
   return (

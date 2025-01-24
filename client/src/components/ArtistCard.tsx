@@ -1,17 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/artistcard.css";
 
-interface ArtistTypes {
-  artist: {
-    id: number;
-    name: string;
-    original_name: string;
-    known_for_department: string;
-    profile_path: string;
-  };
-}
-
-export default function ArtistCard({ artist }: ArtistTypes) {
+export default function ArtistCard({ artist }: ArtistDataTypes) {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
