@@ -116,10 +116,10 @@
 
 .castname {
   font-size: 1rem;
-  margin-top: -1rem;
+
   font-weight: 500;
   max-width: 15ch;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .cardcast {
@@ -160,4 +160,26 @@ summary {
 }
 .birthday {
   padding-top: 0.5rem;
+}
+details {
+  margin: 1em 0;
+  cursor: pointer;
+}
+
+details summary {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.biography {
+  margin-top: 0.5em;
+  line-height: 1.6;
+}
+
+summary {
+  display: inline;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
 }
