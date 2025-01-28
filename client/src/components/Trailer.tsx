@@ -2,15 +2,6 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import TrailerCard from "./TrailerCard";
 
-interface MovieTypes {
-  id: number;
-  title: string;
-  backdrop_path: string | null;
-  poster_path: string;
-  vote_average: number;
-  release_date: string;
-}
-
 export default function Trailer() {
   const { popular } = useLoaderData() as {
     popular: MovieTypes[];

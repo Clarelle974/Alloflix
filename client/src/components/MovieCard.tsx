@@ -1,16 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/movieCard.css";
 
-interface MovieTypes {
-  movie: {
-    id: number;
-    title: string;
-    poster_path: string;
-    vote_average: number;
-    release_date: string;
-  };
-}
-export default function MovieCard({ movie }: MovieTypes) {
+export default function MovieCard({ movie }: MovieDataTypes) {
   const percentageVote = Math.trunc(movie.vote_average * 10);
   const year = movie.release_date.split("-")[0];
   const scrollToTop = () => {

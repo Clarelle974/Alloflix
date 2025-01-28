@@ -4,17 +4,13 @@ import { useLoaderData } from "react-router-dom";
 import Logo from "../assets/images/Alloflix_logo.png";
 import JoinUs from "./JoinUs";
 
-interface Background {
-  backdrop_path: string;
-}
-
 export default function Footer() {
   const popular = useLoaderData() as Background[];
   const backdropPath = popular[2].backdrop_path;
 
   return (
     <footer>
-      <JoinUs backdropPath={backdropPath} />
+      <JoinUs backdrop_path={backdropPath} />
       <div className="join">
         <div className="logo">
           <img src={Logo} alt="Alloflix" className="alloflix-logo" />

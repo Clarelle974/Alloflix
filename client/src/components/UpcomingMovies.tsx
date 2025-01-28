@@ -1,17 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import MovieCard from "./MovieCard";
 
-interface UpcomingMoviesTypes {
-  id: number;
-  title: string;
-  poster_path: string;
-  vote_average: number;
-  release_date: string;
-}
-
 export default function UpcomingMovies() {
   const { upcoming } = useLoaderData() as {
-    upcoming: UpcomingMoviesTypes[];
+    upcoming: MovieTypes[];
   };
   return (
     <section className="upcoming-movie">

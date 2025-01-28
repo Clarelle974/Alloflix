@@ -3,17 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import "../styles/trailerCard.css";
 import playIcon from "../assets/images/play-icon-light.png";
 
-interface MovieTypes {
-  movie: {
-    id: number;
-    backdrop_path: string | null;
-    title: string;
-    poster_path: string;
-    vote_average: number;
-    release_date: string;
-  };
-}
-export default function TrailerCard({ movie }: MovieTypes) {
+export default function TrailerCard({ movie }: MovieDataTypes) {
   const backdropSrc = `https://image.tmdb.org/t/p/w300/${movie.backdrop_path}`;
   const [srcKey, setSrcKey] = useState();
   const dialogRef = useRef<HTMLDialogElement | null>(null);
