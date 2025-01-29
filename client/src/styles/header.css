@@ -49,3 +49,29 @@
   color: var(--bgcolor);
   cursor: pointer;
 }
+
+/* iPhone 12 Pro */
+
+@media screen and (max-width: 390px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .main-title {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  .header-search {
+    width: 17rem;
+  }
+  .input-search {
+    width: 17rem;
+    font-size: 0.60rem;
+  }
+  .btn-search {
+    left: 190px;
+    font-size: 0.55rem;
+    padding: 1.2rem;
+  }
+}
