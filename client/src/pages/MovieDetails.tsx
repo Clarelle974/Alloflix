@@ -160,7 +160,7 @@ export default function MovieDetails() {
       <h2 className="titlecast">Vidéos et Bandes-annonces</h2>
       <div className="container">
         <p>En français</p>
-        <div className="all-cards">
+        <div className="all-cards-trailer">
           {youtubeFrVideos && youtubeFrVideos.length > 0 ? (
             youtubeFrVideos.map((video) => (
               <VideoCard key={video.id} video={video} />
@@ -172,7 +172,7 @@ export default function MovieDetails() {
           )}
         </div>
         <p>En anglais</p>
-        <div className="all-cards">
+        <div className="all-cards-trailer">
           {youtubeEnVideos && youtubeEnVideos.length > 0 ? (
             youtubeEnVideos.map((video) => (
               <VideoCard key={video.id} video={video} />
