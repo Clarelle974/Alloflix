@@ -43,8 +43,30 @@ const configLangEn = {
 
 const getPopularMovies = () => {
   return axios
-    .get("https://api.themoviedb.org/3/discover/movie", config)
+    .get("https://api.themoviedb.org/3/movie/popular", config)
     .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
+const getPopularMovies4 = () => {
+  return axios
+    .all([
+      axios.get("https://api.themoviedb.org/3/movie/popular", config),
+      axios.get("https://api.themoviedb.org/3/movie/popular", configPage2),
+      axios.get("https://api.themoviedb.org/3/movie/popular", configPage3),
+      axios.get("https://api.themoviedb.org/3/movie/popular", configPage4),
+    ])
+    .then(
+      axios.spread((page1, page2, page3, page4) => {
+        const response = [
+          ...page1.data.results,
+          ...page2.data.results,
+          ...page3.data.results,
+          ...page4.data.results,
+        ];
+        return response;
+      }),
+    )
     .catch((error) => console.error(error));
 };
 
@@ -59,6 +81,28 @@ const getTheaterMovies = () => {
   return axios
     .get("https://api.themoviedb.org/3/movie/now_playing", configPage2)
     .then((response) => response.data.results)
+    .catch((error) => console.error(error));
+};
+
+const getTheaterMovies4 = () => {
+  return axios
+    .all([
+      axios.get("https://api.themoviedb.org/3/movie/now_playing", config),
+      axios.get("https://api.themoviedb.org/3/movie/now_playing", configPage2),
+      axios.get("https://api.themoviedb.org/3/movie/now_playing", configPage3),
+      axios.get("https://api.themoviedb.org/3/movie/now_playing", configPage4),
+    ])
+    .then(
+      axios.spread((page1, page2, page3, page4) => {
+        const response = [
+          ...page1.data.results,
+          ...page2.data.results,
+          ...page3.data.results,
+          ...page4.data.results,
+        ];
+        return response;
+      }),
+    )
     .catch((error) => console.error(error));
 };
 
@@ -108,6 +152,27 @@ const getUpcomingMovies = () => {
     .then((response) => response.data.results)
     .catch((error) => console.error(error));
 };
+const getUpcomingMovies4 = () => {
+  return axios
+    .all([
+      axios.get("https://api.themoviedb.org/3/movie/upcoming", config),
+      axios.get("https://api.themoviedb.org/3/movie/upcoming", configPage2),
+      axios.get("https://api.themoviedb.org/3/movie/upcoming", configPage3),
+      axios.get("https://api.themoviedb.org/3/movie/upcoming", configPage4),
+    ])
+    .then(
+      axios.spread((page1, page2, page3, page4) => {
+        const response = [
+          ...page1.data.results,
+          ...page2.data.results,
+          ...page3.data.results,
+          ...page4.data.results,
+        ];
+        return response;
+      }),
+    )
+    .catch((error) => console.error(error));
+};
 
 const getTopRatedMovies = () => {
   return axios
@@ -116,24 +181,25 @@ const getTopRatedMovies = () => {
     .catch((error) => console.error(error));
 };
 
-const getTopRatedMovies2 = () => {
-  return axios
-    .get("https://api.themoviedb.org/3/movie/top_rated", configPage2)
-    .then((response) => response.data.results)
-    .catch((error) => console.error(error));
-};
-
-const getTopRatedMovies3 = () => {
-  return axios
-    .get("https://api.themoviedb.org/3/movie/top_rated", configPage3)
-    .then((response) => response.data.results)
-    .catch((error) => console.error(error));
-};
-
 const getTopRatedMovies4 = () => {
   return axios
-    .get("https://api.themoviedb.org/3/movie/top_rated", configPage4)
-    .then((response) => response.data.results)
+    .all([
+      axios.get("https://api.themoviedb.org/3/movie/top_rated", config),
+      axios.get("https://api.themoviedb.org/3/movie/top_rated", configPage2),
+      axios.get("https://api.themoviedb.org/3/movie/top_rated", configPage3),
+      axios.get("https://api.themoviedb.org/3/movie/top_rated", configPage4),
+    ])
+    .then(
+      axios.spread((page1, page2, page3, page4) => {
+        const response = [
+          ...page1.data.results,
+          ...page2.data.results,
+          ...page3.data.results,
+          ...page4.data.results,
+        ];
+        return response;
+      }),
+    )
     .catch((error) => console.error(error));
 };
 
@@ -168,16 +234,17 @@ export {
   getAllFrVideos,
   getArtists,
   getPopularMovies,
+  getPopularMovies4,
   getDetailsMovie,
   getCreditsMovie,
   getDetailsArtist,
   getCombinedCredits,
   getRecommendations,
   getTheaterMovies,
+  getTheaterMovies4,
   getTopRatedMovies,
-  getTopRatedMovies2,
-  getTopRatedMovies3,
   getTopRatedMovies4,
   getSearchMovie,
   getUpcomingMovies,
+  getUpcomingMovies4,
 };
