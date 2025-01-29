@@ -22,19 +22,19 @@ export default function Footer() {
           <div>
             <h3 className="footer-name">Les bases</h3>
             <ul>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>À propos d'Alloflix</Link>
               </li>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Contactez-nous</Link>
               </li>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Forum d'assitance</Link>
               </li>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Centre d'aide</Link>
               </li>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Statut du système</Link>
               </li>
             </ul>
@@ -42,13 +42,13 @@ export default function Footer() {
           <div>
             <h3 className="footer-name">S'impliquer</h3>
             <ul>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Bible des contributeurs</Link>
               </li>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Ajouter un film</Link>
               </li>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Ajouter un artiste</Link>
               </li>
             </ul>
@@ -56,13 +56,13 @@ export default function Footer() {
           <div>
             <h3 className="footer-name">Communauté</h3>
             <ul>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Règles</Link>
               </li>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Conversations</Link>
               </li>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Top contributeurs</Link>
               </li>
             </ul>
@@ -70,16 +70,16 @@ export default function Footer() {
           <div>
             <h3 className="footer-name">Mentions légales</h3>
             <ul>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Conditions d'utilisation</Link>
               </li>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Confidentialité</Link>
               </li>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Information légales</Link>
               </li>
-              <li>
+              <li className="footer-li">
                 <Link to={"#"}>Préférences de cookies</Link>
               </li>
             </ul>
