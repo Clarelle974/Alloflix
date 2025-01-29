@@ -7,7 +7,6 @@ import searchIcon from "../assets/images/search-icon.png";
 
 export default function Navbar() {
   const [isMoviesDropdownVisible, setMoviesDropdownVisible] = useState(false);
-  const [isArtistsDropdownVisible, setArtistsDropdownVisible] = useState(false);
   const [searchBarView, setSearchBarView] = useState(false);
   const [searchedMovie, setSearchedMovie] = useState("");
 
@@ -19,14 +18,6 @@ export default function Navbar() {
 
   const handleMoviesMouseLeave = () => {
     setMoviesDropdownVisible(false);
-  };
-
-  const handleArtistsMouseEnter = () => {
-    setArtistsDropdownVisible(true);
-  };
-
-  const handleArtistsMouseLeave = () => {
-    setArtistsDropdownVisible(false);
   };
 
   const handleClickSearchIcon = () => {
@@ -79,25 +70,8 @@ export default function Navbar() {
               </ul>
             )}
           </li>
-          <li
-            className="dropdown"
-            onMouseEnter={handleArtistsMouseEnter}
-            onMouseLeave={handleArtistsMouseLeave}
-          >
+          <li>
             <Link to="/artists/all">Artistes</Link>
-            {isArtistsDropdownVisible && (
-              <ul className="artists-dropdown-menu">
-                <li>
-                  <Link to="/artists/acteurs" className="link">
-                    Acteurs
-                  </Link>
-
-                  <Link to="/artists/realisateurs" className="link">
-                    Réalisateurs
-                  </Link>
-                </li>
-              </ul>
-            )}
           </li>
         </ul>
       </div>
