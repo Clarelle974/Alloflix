@@ -15,6 +15,11 @@
   height: 4rem;
 }
 
+.link-nav {
+  display: flex;
+  align-items: center;
+}
+
 .link-nav > ul {
   display: flex;
   list-style: none;
@@ -70,6 +75,7 @@
   list-style: none;
   text-decoration: none;
   cursor: pointer;
+  font-size: 0.85rem;
 }
 
 .link:hover {
