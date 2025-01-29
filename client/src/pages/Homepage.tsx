@@ -11,8 +11,6 @@ export default function Homepage() {
   };
 
   const backgroundImg = popular[1].backdrop_path;
-  const backgroundImgJoinUs = popular[2].backdrop_path;
-  console.info(`background from Homepage ${backgroundImgJoinUs}`);
 
   return (
     <>

@@ -79,7 +79,7 @@ export default function Movies() {
             value={selectedGenre}
             onChange={handleGenreChange}
           >
-            <option value="" disabled selected>
+            <option value="" disabled>
               Selectionner un genre
             </option>
             <option value="">Tous</option>
@@ -99,7 +99,7 @@ export default function Movies() {
             value={sortKey}
             onChange={handleSortKeyChange}
           >
-            <option value="" disabled selected>
+            <option value="" disabled>
               Trier par ...
             </option>
             <option value="popularity">Les + populaires</option>

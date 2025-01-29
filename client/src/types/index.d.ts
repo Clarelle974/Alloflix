@@ -60,7 +60,7 @@ interface Videos {
 }
 interface VideoResults {
   name: string;
-  key: string;
+  key: string | null;
   site: string;
   type: string;
   id: string;
@@ -69,7 +69,7 @@ interface VideoResults {
 interface VideoTypes {
   video: {
     name: string;
-    key: string;
+    key: string | null;
     site: string;
     type: string;
     id: string;
