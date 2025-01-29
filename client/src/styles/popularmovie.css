@@ -41,10 +41,11 @@
 
 @media screen and (max-width: 390px) {
   .popular-movie-title {
-    padding: 1rem 0 0 2rem;
+    padding: 1.5rem 0 0 2rem;
+    margin-bottom: 0.5rem;
     font-size: 1.5rem;
   }
   .container {
-    padding: 0rem;
+    padding: 0;
   }
 }
