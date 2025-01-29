@@ -20,27 +20,9 @@ export default function Artists() {
 
   const { type } = useParams();
 
-  const actingData = data.filter(
-    (artist) => artist.known_for_department === "Acting",
-  );
-
-  const directingData = data.filter(
-    (artist) => artist.known_for_department === "Directing",
-  );
-
   let title = "Artistes";
 
   let askedData = data;
-
-  if (type === "acteurs") {
-    askedData = actingData;
-    title = "Acteurs";
-  }
-
-  if (type === "realisateurs") {
-    askedData = directingData;
-    title = "Réalisateurs";
-  }
 
   if (type === "all") {
     askedData = data;
