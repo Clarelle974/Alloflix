@@ -3,13 +3,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: 1rem;
+  margin-right: 4rem;
 }
 
 .logo {
   display: flex;
   align-items: center;
   padding: 1rem 0 1rem 0;
+  margin-left: 2.5rem;
 }
 
 .logo > img {
