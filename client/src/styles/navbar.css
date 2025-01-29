@@ -25,7 +25,6 @@
 .link-nav > ul {
   display: flex;
   list-style: none;
-
   gap: 8rem;
 }
 
@@ -103,4 +102,41 @@
 .link-nav {
   position: absolute;
   left: 35rem;
+}
+
+/* iPhone 12 Pro */
+
+@media screen and (max-width: 390px) {
+  .navbar {
+    margin-right: 0rem;
+  }
+  .logo {
+    padding: 0.5rem 0 0.5rem 0;
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
+  .logo > img {
+    height: 2rem;
+  }
+  .link-nav {
+    left: 9.5rem;
+  }
+  .link-nav > ul {
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+  .searchnav {
+    padding-right: 1rem;
+  }
+  .searchnav > button > img {
+    width: 1.5rem;
+  }
+  .searchnav > input {
+    width: 5rem;
+    font-size: 0.4rem;
+  }
+  .link {
+    padding-right: 1rem;
+    font-size: 0.6rem;
+  }
 }
