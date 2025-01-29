@@ -19,7 +19,11 @@ export default function TrailerCard({ movie }: MovieDataTypes) {
     axios
       .get(`https://api.themoviedb.org/3/movie/${movie.id}/videos`, config)
       .then((res) => {
-        setSrcKey(res.data.results[0].key);
+        if (res.data.results.length > 0 && res.data.results[0].key) {
+          setSrcKey(res.data.results[0].key);
+        } else {
+          setSrcKey(undefined);
+        }
       })
       .catch((error) => console.error(error));
   }, [movie.id]);
