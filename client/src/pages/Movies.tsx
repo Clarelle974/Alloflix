@@ -79,44 +79,46 @@ export default function Movies() {
   return (
     <>
       <h2 className="title">{h2ListTitle}</h2>
-      <div>
-        <select
-          required
-          aria-label="filtrer par genre"
-          value={selectedGenre}
-          onChange={handleGenreChange}
-        >
-          <option value="" disabled selected>
-            Selectionner un genre
-          </option>
-          <option value="">Tous</option>
-          <option value="28">Action</option>
-          <option value="12">Aventure</option>
-          <option value="35">Comedie</option>
-          <option value="10749">Romance</option>
-          <option value="878">Science-Fiction</option>
-          <option value="53">Thriller</option>
-          <option value="27">Horreur</option>
-        </select>
-      </div>
-      <div>
-        <select
-          required
-          aria-label="trier les films"
-          value={sortKey}
-          onChange={handleSortKeyChange}
-        >
-          <option value="" disabled selected>
-            Trier par ...
-          </option>
-          <option value="popularity">Les + populaires</option>
-          <option value="popularity_low">Les - populaires</option>
-          <option value="release_date">Les + récents</option>
-          <option value="release_date_low">Les - récents</option>
-          <option value="vote_average">Les mieux notés</option>
-          <option value="vote_average_low">Les moins bien notés</option>
-        </select>
-      </div>
+      <fieldset>
+        <div>
+          <select
+            required
+            aria-label="filtrer par genre"
+            value={selectedGenre}
+            onChange={handleGenreChange}
+          >
+            <option value="" disabled selected>
+              Selectionner un genre
+            </option>
+            <option value="">Tous</option>
+            <option value="28">Action</option>
+            <option value="12">Aventure</option>
+            <option value="35">Comedie</option>
+            <option value="10749">Romance</option>
+            <option value="878">Science-Fiction</option>
+            <option value="53">Thriller</option>
+            <option value="27">Horreur</option>
+          </select>
+        </div>
+        <div>
+          <select
+            required
+            aria-label="trier les films"
+            value={sortKey}
+            onChange={handleSortKeyChange}
+          >
+            <option value="" disabled selected>
+              Trier par ...
+            </option>
+            <option value="popularity">Les + populaires</option>
+            <option value="popularity_low">Les - populaires</option>
+            <option value="release_date">Les + récents</option>
+            <option value="release_date_low">Les - récents</option>
+            <option value="vote_average">Les mieux notés</option>
+            <option value="vote_average_low">Les moins bien notés</option>
+          </select>
+        </div>
+      </fieldset>
       <section className="section-movies">
         {sortedData.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
