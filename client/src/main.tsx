@@ -20,14 +20,14 @@ import {
   getDetailsArtist,
   getDetailsMovie,
   getPopularMovies,
+  getPopularMovies4,
   getRecommendations,
   getSearchMovie,
   getTheaterMovies,
-  getTopRatedMovies,
-  getTopRatedMovies2,
-  getTopRatedMovies3,
+  getTheaterMovies4,
   getTopRatedMovies4,
   getUpcomingMovies,
+  getUpcomingMovies4,
 } from "./services/requests";
 
 const router = createBrowserRouter([
@@ -50,13 +50,10 @@ const router = createBrowserRouter([
         path: "/movies/:type",
         element: <Movies />,
         loader: async () => ({
-          theater: await getTheaterMovies(),
-          toprated: await getTopRatedMovies(),
-          popular: await getPopularMovies(),
-          toprated2: await getTopRatedMovies2(),
-          toprated3: await getTopRatedMovies3(),
-          toprated4: await getTopRatedMovies4(),
-          upcoming: await getUpcomingMovies(),
+          theater: await getTheaterMovies4(),
+          popular: await getPopularMovies4(),
+          toprated: await getTopRatedMovies4(),
+          upcoming: await getUpcomingMovies4(),
         }),
       },
       {

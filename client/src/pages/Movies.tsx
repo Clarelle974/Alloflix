@@ -11,25 +11,17 @@ export default function Movies() {
     popular: MovieTypes[];
     upcoming: MovieTypes[];
     theater: MovieTypes[];
-    toprated2: MovieTypes[];
-    toprated3: MovieTypes[];
-    toprated4: MovieTypes[];
   };
 
   const [selectedGenre, setSelectedGenre] = useState("");
   const [sortKey, setSortKey] = useState("");
 
   let h2ListTitle = "Films les mieux notés";
-  let data = [
-    ...allData.toprated,
-    ...allData.toprated2,
-    ...allData.toprated3,
-    ...allData.toprated4,
-  ];
+  let data = [...allData.toprated];
 
   if (type === "toprated") {
     h2ListTitle = "Films les mieux notés";
-    data = [...allData.toprated, ...allData.toprated2, ...allData.toprated3];
+    data = [...allData.toprated];
   }
 
   if (type === "popular") {
