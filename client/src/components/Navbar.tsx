@@ -64,25 +64,17 @@ export default function Navbar() {
             <Link to="/movies/top-rated">Films</Link>
             {isMoviesDropdownVisible && (
               <ul className="dropdown-menu">
-                <li>
-                  <Link to="/movies/toprated" className="link">
-                    Les mieux notés
-                  </Link>
+                <li className="link link-1">
+                  <Link to="/movies/toprated">Les mieux notés</Link>
                 </li>
-                <li>
-                  <Link to="/movies/popular" className="link">
-                    Populaires
-                  </Link>
+                <li className="link">
+                  <Link to="/movies/popular">Populaires</Link>
                 </li>
-                <li>
-                  <Link to="/movies/now-playing" className="link">
-                    Du moment
-                  </Link>
+                <li className="link">
+                  <Link to="/movies/now-playing">Du moment</Link>
                 </li>
-                <li>
-                  <Link to="/movies/upcoming" className="link">
-                    À venir
-                  </Link>
+                <li className="link link-4">
+                  <Link to="/movies/upcoming">À venir</Link>
                 </li>
               </ul>
             )}
