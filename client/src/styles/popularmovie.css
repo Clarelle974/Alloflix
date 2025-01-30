@@ -11,6 +11,16 @@
   flex-wrap: nowrap;
   overflow-x: scroll;
   scroll-behavior: smooth;
+  background-image: url("https://www.themoviedb.org/assets/2/v4/misc/trending-bg-39afc2a5f77e31d469b25c187814c0a2efef225494c038098d62317d923f8415.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.all-cards-trailer {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
@@ -25,4 +35,17 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: darkgray;
+}
+
+/* iPhone 12 Pro */
+
+@media screen and (max-width: 390px) {
+  .popular-movie-title {
+    padding: 1.5rem 0 0 2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+  .container {
+    padding: 0;
+  }
 }

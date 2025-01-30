@@ -38,3 +38,28 @@
 .list-text {
   margin-top: 3rem;
 }
+
+/* iPhone 12 Pro */
+
+@media screen and (max-width: 390px) {
+  .joinus-container {
+    padding: 0;
+  }
+  .joinus {
+    margin-top: 1rem;
+  }
+  .presentation-text {
+    padding: 0 2rem;
+  }
+  .link-joinus {
+    padding: 1rem;
+    margin: 2rem;
+  }
+  .li-joinus {
+    padding: 0.2rem 1.5rem;
+    margin-left: 2rem;
+  }
+  .li-joinus:last-of-type {
+    margin-bottom: 2rem;
+  }
+}

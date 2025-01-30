@@ -30,7 +30,7 @@ export default function Trailer() {
     >
       <h2 className="popular-movie-title">Bandes-annonces</h2>
       <div className="container">
-        <article className="all-cards">
+        <article className="all-cards-trailer">
           {popular.map((movie) => (
             <div
               key={movie.id}
