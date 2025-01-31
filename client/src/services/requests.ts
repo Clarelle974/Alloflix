@@ -72,7 +72,7 @@ const getPopularMovies4 = () => {
 
 const getArtists = () => {
   return axios
-    .get("https://api.themoviedb.org/3/person/popular", config)
+    .get("https://api.themoviedb.org/3/person/popular", configLangEn)
     .then((response) => response.data.results)
     .catch((error) => console.error(error));
 };
