@@ -40,6 +40,7 @@ export default function Movies() {
   const handleGenreChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedGenre(event.target.value);
   };
+
   const handleSortKeyChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSortKey(event.target.value);
   };
@@ -67,6 +68,10 @@ export default function Movies() {
         sortFunctions[sortKey as keyof typeof sortFunctions],
       )
     : filteredData;
+
+  const uniqueData = Array.from(
+    new Set(sortedData.map((movie) => movie.id)),
+  ).map((id) => sortedData.find((movie) => movie.id === id));
 
   return (
     <>
@@ -112,9 +117,11 @@ export default function Movies() {
         </div>
       </fieldset>
       <section className="section-movies">
-        {sortedData.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        {uniqueData
+          .filter((movie): movie is MovieTypes => movie !== undefined)
+          .map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
       </section>
     </>
   );
