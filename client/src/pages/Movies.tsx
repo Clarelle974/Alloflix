@@ -46,9 +46,7 @@ export default function Movies() {
   };
 
   const filteredData = selectedGenre
-    ? data.filter((movie) =>
-        movie.genre_ids.some((genreId) => genreId === Number(selectedGenre)),
-      )
+    ? data.filter((movie) => movie.genre_ids.includes(Number(selectedGenre)))
     : data;
 
   const sortFunctions = {
