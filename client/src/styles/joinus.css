@@ -1,0 +1,65 @@
+.joinus-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 10rem;
+}
+
+.joinus {
+  margin-bottom: 2rem;
+}
+
+.presentation-text {
+  margin-bottom: 3rem;
+}
+
+.link-joinus {
+  background-color: var(--primary-color);
+  color: var(--bgcolor);
+  box-shadow: inset 0 0 0 0 var(--bgcolor);
+  border: 2px solid var(--primary-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  transition: color .5s ease-in-out, box-shadow 0.5s ease-in-out;
+  width: 5rem;
+}
+.link-joinus:hover {
+  color: var(--primary-color);
+  box-shadow: inset 200px 0 0 0 var(--bgcolor);
+}
+
+.li-joinus {
+  list-style-type: disc !important;
+}
+
+.list-text {
+  margin-top: 3rem;
+}
+
+/* iPhone 12 Pro */
+
+@media screen and (max-width: 390px) {
+  .joinus-container {
+    padding: 0;
+  }
+  .joinus {
+    margin-top: 1rem;
+  }
+  .presentation-text {
+    padding: 0 2rem;
+  }
+  .link-joinus {
+    padding: 1rem;
+    margin: 2rem;
+  }
+  .li-joinus {
+    padding: 0.2rem 1.5rem;
+    margin-left: 2rem;
+  }
+  .li-joinus:last-of-type {
+    margin-bottom: 2rem;
+  }
+}

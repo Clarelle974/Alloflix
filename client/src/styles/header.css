@@ -1,0 +1,77 @@
+.header {
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: fit-content;
+  min-height: 19rem;
+  max-height: 23rem;
+  height: calc(100vh / 2.5);
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-title {
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.header-search {
+  width: 50rem;
+}
+
+.input-search {
+  position: absolute;
+  width: 50rem;
+  height: 2rem;
+  border-radius: 20px;
+  border: none;
+  padding: 1.5rem 0 1.5rem 1rem;
+  outline: none;
+  color: black;
+}
+
+.btn-search {
+  position: relative;
+  left: 700px;
+  padding: 1rem;
+  border: none;
+  border-radius: 20px;
+  background: var(--bgcolor);
+}
+.btn-search:hover {
+  background-color: lightgray;
+  color: var(--bgcolor);
+  cursor: pointer;
+}
+
+/* iPhone 12 Pro */
+
+@media screen and (max-width: 390px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .main-title {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  .header-search {
+    width: 17rem;
+  }
+  .input-search {
+    width: 17rem;
+    font-size: 0.60rem;
+  }
+  .btn-search {
+    left: 190px;
+    font-size: 0.55rem;
+    padding: 1.2rem;
+  }
+}

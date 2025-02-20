@@ -1,0 +1,106 @@
+.movieCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: min-content;
+}
+
+.titlemoviecard {
+  font-size: 1rem;
+  margin-top: -1rem;
+  font-weight: 500;
+}
+
+.movie-year-card {
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+.img-movie-card {
+  border-radius: 16px;
+  height: 15rem;
+}
+
+.rate-green {
+  display: flex;
+  background: radial-gradient(
+    circle,
+    rgba(52, 196, 33, 1) 19%,
+    rgba(76, 252, 69, 1) 83%
+  );
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 3rem;
+  font-weight: 800;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -1.5rem;
+  left: 1rem;
+  font-size: 0.9rem;
+}
+
+.rate-orange {
+  display: flex;
+  background: radial-gradient(
+    circle,
+    rgba(253, 29, 29, 1) 11%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 3rem;
+  font-weight: 800;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -1.5rem;
+  left: 1rem;
+  font-size: 0.9rem;
+}
+
+.rate-red {
+  display: flex;
+  background: radial-gradient(
+    circle,
+    rgba(253, 29, 29, 1) 23%,
+    rgba(252, 69, 69, 1) 83%
+  );
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 3rem;
+  font-weight: 800;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -1.5rem;
+  left: 1rem;
+  font-size: 0.9rem;
+}
+
+.movie-title-card {
+  font-size: 1rem;
+  margin-top: -1rem;
+  font-weight: 500;
+  max-width: 15ch;
+}
+
+.movie-year-card {
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+/* iPhone 12 Pro */
+
+@media screen and (max-width: 390px) {
+  .movieCard {
+    padding: 0 10px;
+  }
+  .movie-year-card {
+    font-size: 1rem;
+  }
+  .img-movie-card {
+    height: 225px;
+    width: 150px;
+  }
+}

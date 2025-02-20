@@ -1,0 +1,144 @@
+.navbar {
+  background: var(--bgcolor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 4rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0 1rem 0;
+  margin-left: 2.5rem;
+}
+
+.logo > img {
+  height: 4rem;
+}
+
+.link-nav {
+  display: flex;
+  align-items: center;
+}
+
+.link-nav > ul {
+  display: flex;
+  list-style: none;
+  gap: 8rem;
+}
+
+.searchnav {
+  display: flex;
+}
+
+.hide {
+  display: none;
+  width: 10rem;
+}
+
+.searchnav > input::placeholder {
+  opacity: 0.8;
+}
+
+.searchnav > input {
+  padding: 0.5rem;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 12rem;
+  color: white;
+  margin-right: 0.5rem;
+  outline: none;
+}
+
+.searchnav > button {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.searchnav > button:hover {
+  cursor: pointer;
+}
+
+.searchnav > button > img {
+  width: 2rem;
+}
+
+.dropdown-menu {
+  position: absolute;
+  z-index: 1;
+}
+
+.link {
+  background-color: var(--primary-color);
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  display: flex;
+  list-style: none;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.link:hover {
+  background-color: #dee2e6;
+}
+
+.link > a {
+  color: var(--bgcolor);
+}
+
+.link > a:hover {
+  color: var(--bgcolor);
+}
+
+.link-1 {
+  border-radius: 10px 10px 0 0;
+}
+.link-4 {
+  border-radius: 0 0 10px 10px;
+}
+
+.link-nav {
+  position: absolute;
+  left: 35rem;
+}
+
+/* iPhone 12 Pro */
+
+@media screen and (max-width: 390px) {
+  .navbar {
+    margin-right: 0rem;
+    height: 64px;
+  }
+  .logo {
+    padding: 0.5rem 0 0.5rem 0;
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
+  .logo > img {
+    height: 2rem;
+  }
+  .link-nav {
+    left: 9.5rem;
+  }
+  .link-nav > ul {
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+  .searchnav {
+    padding-right: 1rem;
+  }
+  .searchnav > button > img {
+    width: 1.5rem;
+  }
+  .searchnav > input {
+    width: 5rem;
+    font-size: 0.4rem;
+  }
+  .link {
+    padding-right: 1rem;
+    font-size: 0.6rem;
+  }
+}

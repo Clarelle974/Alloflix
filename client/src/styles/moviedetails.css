@@ -1,0 +1,185 @@
+.poster {
+  height: 30rem;
+  margin: 2rem;
+  border-radius: 10px;
+}
+.detailscards {
+  display: flex;
+  margin-left: 0rem;
+}
+
+.right {
+  padding: 4rem;
+  max-width: 65%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  a {
+    display: flex;
+    max-height: 3rem;
+    align-items: center;
+    background-color: var(--bgcolor);
+    opacity: 0.8;
+    position: relative;
+    top: -1.5rem;
+    left: 3rem;
+    align-content: center;
+    padding-right: 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    img {
+      width: 4rem;
+    }
+  }
+}
+
+.namedetails {
+  padding: 2rem;
+  border: solid 1px white;
+  width: fit-content;
+  padding: 0.5rem;
+
+  border-radius: 10px;
+}
+.profilepic {
+  border-radius: 16px;
+  height: 15rem;
+}
+
+.cardcast {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardscasting {
+  display: flex;
+  margin: 3rem;
+  gap: 4rem;
+}
+
+.cast2 {
+  display: flex;
+  justify-content: center;
+}
+
+.cast3 {
+  display: flex;
+
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+.titlecast {
+  margin: 2rem;
+  margin-left: 6rem;
+}
+
+.infos-movie {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.tagline {
+  opacity: 0.7;
+  font-weight: 400;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.left {
+  margin-left: 4rem;
+  margin-top: 2rem;
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.filmo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20ch;
+}
+
+.filmotitle {
+  margin-top: 2rem;
+}
+
+.castname {
+  font-size: 1rem;
+
+  font-weight: 500;
+  max-width: 15ch;
+  margin-top: 1rem;
+}
+
+.cardcast {
+  display: flex;
+  align-items: center;
+}
+
+.movie-details {
+  text-decoration: none;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darkgray;
+}
+summary {
+  text-decoration: underline;
+}
+.topgap {
+  margin-top: 1rem;
+}
+.originactor {
+  padding-top: 0.5rem;
+}
+.birthday {
+  padding-top: 0.5rem;
+}
+details {
+  margin: 1em 0;
+  cursor: pointer;
+}
+
+details summary {
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.biography {
+  margin-top: 0.5em;
+  line-height: 1.6;
+}
+
+summary {
+  display: inline;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,0 +1,68 @@
+footer {
+  background-color: var(--bgcolor);
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.join {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+.alloflix-logo {
+  margin: 2rem 0 2rem 0;
+}
+
+.community {
+  background-color: var(--primary-color);
+  color: var(--bgcolor);
+  box-shadow: inset 0 0 0 0 var(--bgcolor);
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid var(--primary-color);
+  padding: 1rem;
+  transition: color .5s ease-in-out, box-shadow .5s ease-in-out;
+}
+.community:hover {
+  color: var(--primary-color);
+  box-shadow: inset 300px 0 0 0 var(--bgcolor);
+}
+
+.nav-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+
+.footer-name {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+nav > div > ul {
+  list-style: none;
+}
+
+.footer-li {
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+.copyright {
+  color: white;
+  padding: 2rem;
+}
